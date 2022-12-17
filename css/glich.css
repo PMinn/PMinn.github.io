@@ -1,48 +1,21 @@
-.glich {
-    position: absolute;
-    left: calc(80vh * -0.55 / 2);
-    top: 10vh;
-    height: 80vh;
+.glitch-anim-2 {
     --gap-horizontal: 10px;
-}
-
-.glich::before {
-    content: '';
-    display: block;
-    height: 100%;
-    width: calc(80vh * 0.55);
-    border: 1px #ffffff80 solid;
-    position: absolute;
-    left: calc(80vh * 0.55 / 2 - 5px);
-    top: 40px;
-}
-
-.glich>img {
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.glich>img:first-child {
-    background-color: #303030;
-}
-
-.glich>img:nth-child(2) {
-    opacity: 0;
     animation: glitch-anim-2 linear infinite 4s 2s;
+    opacity: 0;
     filter: drop-shadow(#ff000070 10px 0 0) drop-shadow(#0000ff70 -5px -10px 0);
 }
 
-.glich>img:nth-child(3) {
-    opacity: 0;
+.glitch-anim-3 {
+    --gap-horizontal: 10px;
     animation: glitch-anim-3 linear infinite 4s 2s;
+    opacity: 0;
     filter: drop-shadow(#ff000070 10px 0 0) drop-shadow(#0000ff70 -5px -10px 0);
 }
 
-.glich>img:nth-child(4) {
-    opacity: 0;
+.glitch-anim-4 {
+    --gap-horizontal: 10px;
     animation: glitch-anim-4 linear infinite 4s 2s;
+    opacity: 0;
     filter: drop-shadow(#ff000070 10px 0 0) drop-shadow(#0000ff70 -5px -10px 0);
 }
 

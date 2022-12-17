@@ -1,0 +1,135 @@
+body {
+    cursor: url('../media/cursor.svg') 16 16, auto;
+}
+
+@font-face {
+    font-family: "DelaGothicOne";
+    src: url("../fonts/Dela Gothic One.woff") format("woff");
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #252525;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+#loading>div {
+    position: absolute;
+    border-top: 3px #fff solid;
+    border-right: 3px #fff solid;
+    border-radius: 999px;
+    animation: loading var(--animation-time) infinite linear;
+}
+
+#loading>div:nth-child(1) {
+    width: 30px;
+    height: 30px;
+    left: calc(50vw - 15px);
+    top: calc(50vh - 15px);
+    --from-x: 0;
+    --from-y: 0;
+    --to-x: 360deg;
+    --to-y: 360deg;
+    --animation-time: 3s;
+}
+
+#loading>div:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: calc(50vw - 30px);
+    top: calc(50vh - 30px);
+    --from-x: 180deg;
+    --from-y: 180deg;
+    --to-x: 540deg;
+    --to-y: 540deg;
+    --animation-time: 6s;
+}
+
+#loading>div:nth-child(3) {
+    width: 90px;
+    height: 90px;
+    left: calc(50vw - 45px);
+    top: calc(50vh - 45px);
+    --from-x: 540deg;
+    --from-y: 0;
+    --to-x: 180deg;
+    --to-y: 360deg;
+    --animation-time: 9s;
+}
+
+@keyframes loading {
+    from {
+        transform: rotateX(var(--from-x)) rotateY(var(--from-y));
+    }
+
+    to {
+        transform: rotateX(var(--to-x)) rotateY(var(--to-y));
+    }
+}
+
+.images-out {
+    position: absolute;
+    left: calc(-40vh * 689 / 886 + 15px);
+    top: 10vh;
+    height: 80vh;
+}
+
+.images-out::before {
+    content: '';
+    display: block;
+    height: 80vh;
+    width: calc(80vh * 689 / 886);
+    border: 1px #ffffff80 solid;
+    position: absolute;
+    left: 30px;
+    top: 40px;
+}
+
+.images-out>img {
+    height: 80vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.main-image {
+    background-color: #303030;
+}
+
+.cover-text {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: calc(100vw - (40vh * 689 / 886) - 45px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 5px 5px 20px black;
+}
+
+.cover-text>* {
+    color: #fff;
+    text-align: center;
+    margin: 10px;
+}
+
+.cover-text>a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 25px;
+}
+
+#name {
+    font-family: 'DelaGothicOne', sans-serif;
+    font-size: 100px;
+    font-weight: 700;
+}

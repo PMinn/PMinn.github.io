@@ -11,60 +11,27 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./css/init.css">
     <link rel="stylesheet" href="./css/glich.css">
-    <style>
-        body {
-            cursor: url('./media/cursor.svg') 16 16, auto;
-        }
-
-        @font-face {
-            font-family: "DelaGothicOne";
-            src: url("./fonts/Dela Gothic One.woff") format("woff");
-        }
-
-        .cover-text {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: calc(100vw - (100vh *0.45));
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cover-text>* {
-            color: #fff;
-            text-align: center;
-            margin: 10px;
-        }
-
-        .cover-text>a {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-style: italic;
-            font-size: 25px;
-        }
-
-        #name {
-            font-family: 'DelaGothicOne', sans-serif;
-            font-size: 100px;
-            font-weight: 700;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" media="only screen and (max-width: 500px)" href="./css/index-mobile.css">
 </head>
 
 <body>
-    <div class="glich">
-        <img src="./media/head.png" alt="">
-        <img src="./media/head.png" alt="">
-        <img src="./media/head.png" alt="">
-        <img src="./media/head.png" alt="">
+    <div id="loading">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="images-out">
+        <img src="./media/head.png" class="main-image">
+        <img src="./media/head.png" class="glitch-anim-2">
+        <img src="./media/head.png" class="glitch-anim-3">
+        <img src="./media/head.png" class="glitch-anim-4">
     </div>
     <div class="cover-text">
         <a>Hey, I'm</a>
         <h1 id="name">P'Min</h1>
     </div>
+    <script src="./js/index.js"></script>
 </body>
-<!--  -->
+
 </html>
