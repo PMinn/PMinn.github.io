@@ -78,12 +78,11 @@ jobs:
       - name: Detect folder
         id: found folder
         run: |
-          DIR="out"
-          if [ -d "$DIR" ]; then
-            echo "Installing config files in ${DIR}..."
+          if [ -d "${{ github.workspace }}/out" ]; then
+            echo "Installing config files in out..."
             exit 0
           else
-            echo "Error: ${DIR} not found. Can not continue."
+            echo "Error: out not found. Can not continue."
             exit 1
           fi
       - name: Upload artifact
