@@ -81,6 +81,7 @@ jobs:
           DIR="out"
           if [ -d "$DIR" ]; then
             echo "Installing config files in ${DIR}..."
+            exit 0
           else
             echo "Error: ${DIR} not found. Can not continue."
             exit 1
