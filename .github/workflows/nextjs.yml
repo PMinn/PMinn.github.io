@@ -75,11 +75,20 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - uses: actions/upload-artifact@master
+      - name: Detect package manager
+        id: detect-package-manager
+        run: |
+          DIR="out"
+          if [ -d "$DIR" ]; then
+            echo "Installing config files in ${DIR}..."
+          else
+            echo "Error: ${DIR} not found. Can not continue."
+            exit 1
+          fi
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: page
           path: out
-          if-no-files-found: error
 
   # Deployment job
   deploy:
@@ -89,9 +98,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: .
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
