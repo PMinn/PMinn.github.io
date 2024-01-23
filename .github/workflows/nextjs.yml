@@ -80,12 +80,12 @@ jobs:
       - name: Check file existence
         id: check_files
         run: |
-          if [-d "./dist"]; then
+          if [ -d "./dist" ]; then
             echo "********* dist exist **********"
           else
             echo "********* dist not exist **********"
           fi
-          if [-d "./out"]; then
+          if [ -d "./out" ]; then
             echo "********* out exist **********"
           else
             echo "********* out not exist **********"
