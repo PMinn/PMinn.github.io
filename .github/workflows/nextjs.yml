@@ -77,19 +77,6 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
-      # - name: Check file existence
-      #   id: check_files
-      #   run: |
-      #     if [ -d "./dist" ]; then
-      #       echo "********* dist exist **********"
-      #     else
-      #       echo "********* dist not exist **********"
-      #     fi
-      #     if [ -d "./out" ]; then
-      #       echo "********* out exist **********"
-      #     else
-      #       echo "********* out not exist **********"
-      #     fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
