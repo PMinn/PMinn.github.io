@@ -1,5 +1,3 @@
-import style from '../styles/index.module.css';
-
 export default function Index() {
 
     const projects = [{
@@ -51,10 +49,17 @@ export default function Index() {
             </section>
             <section className='w-full min-h-svh'>
                 {/* <h2 className='text-2xl font-black mb-4'>專案</h2> */}
-                <div className={"grid grid-flow-row-dense grid-cols-3 gap-4 " + style.projects}>
+                <div className="grid grid-flow-row-dense grid-cols-3 gap-4">
                     {
                         projects.map((project, i) => (
-                            <a className={`relative border-1 row-span-${project.row} col-span-${project.col} ` + style.project} href={project.link} title={project.title + "(另開新視窗)"} target="_blank" key={'projects_' + i}>
+                            <a
+                                className="relative border-1"
+                                style={{ gridRow: `span ${project.row} / span ${project.row}` }}
+                                href={project.link}
+                                title={project.title + "(另開新視窗)"}
+                                target="_blank"
+                                key={'projects_' + i}
+                            >
                                 <img src={project.image} className='w-full h-full aspect-video object-cover' alt={project.title + "圖示"} />
                                 <div className='w-full h-full p-10 text-white bg-[#00000090] overflow-hidden absolute top-0 left-0 opacity-0 hover:opacity-100 transition duration-300'>
                                     <div className='w-full h-full overflow-y-auto'>
