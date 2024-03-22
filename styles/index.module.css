@@ -1,0 +1,7 @@
+.project img {
+    opacity: .4;
+}
+
+.project:hover img {
+    opacity: 1;
+}
