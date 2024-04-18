@@ -93,6 +93,7 @@ export default function Index() {
                     transitionDuration={1000}
                     itemClass='px-[8px] md:px-[2rem]'
                     centerMode={true}
+                    ssr={true}
 
                     data-scroll
                     data-scroll-speed='2'
