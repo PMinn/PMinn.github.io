@@ -1,15 +1,43 @@
 [
     {
+        "name": "HTML",
+        "image": "/images/icon-html.svg"
+    },
+    {
         "name": "JS",
         "image": "/images/icon-js.svg"
+    },
+    {
+        "name": "CSS",
+        "image": "/images/icon-css.svg"
+    },
+    {
+        "name": "java",
+        "image": "/images/icon-java.svg"
+    },
+    {
+        "name": "NodeJS",
+        "image": "/images/icon-nodejs.svg"
+    },
+    {
+        "name": "Python",
+        "image": "/images/icon-python.svg"
+    },
+    {
+        "name": "Bootstrap",
+        "image": "/images/icon-bootstrap.svg"
+    },
+    {
+        "name": "Tailwind",
+        "image": "/images/icon-tailwind.svg"
     },
     {
         "name": "react",
         "image": "/images/icon-react.svg"
     },
     {
-        "name": "HTML",
-        "image": "/images/icon-html.svg"
+        "name": "Next.js",
+        "image": "/images/icon-nextjs.svg"
     },
     {
         "name": "PageSpeed Insights",
@@ -26,5 +54,37 @@
     {
         "name": "REST API",
         "image": "/images/icon-api.svg"
+    },
+    {
+        "name": "Postman",
+        "image": "/images/icon-postman.svg"
+    },
+    {
+        "name": "blender",
+        "image": "/images/icon-blender.svg"
+    },
+    {
+        "name": "Visual Studio Code",
+        "image": "/images/icon-vscode.svg"
+    },
+    {
+        "name": "Eclipse",
+        "image": "/images/icon-eclipse.svg"
+    },
+    {
+        "name": "Spring Boot",
+        "image": "/images/icon-spring.svg"
+    },
+    {
+        "name": "Firebase",
+        "image": "/images/icon-firebase.svg"
+    },
+    {
+        "name": "Vercel",
+        "image": "/images/icon-vercel.svg"
+    },
+    {
+        "name": "Google Apps Script",
+        "image": "/images/icon-gas.svg"
     }
 ]
