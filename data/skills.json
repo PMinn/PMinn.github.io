@@ -1,0 +1,30 @@
+[
+    {
+        "name": "JS",
+        "image": "/images/icon-js.svg"
+    },
+    {
+        "name": "react",
+        "image": "/images/icon-react.svg"
+    },
+    {
+        "name": "HTML",
+        "image": "/images/icon-html.svg"
+    },
+    {
+        "name": "PageSpeed Insights",
+        "image": "/images/icon-pi.svg"
+    },
+    {
+        "name": "Web Accessibility",
+        "image": "/images/icon-a11y.svg"
+    },
+    {
+        "name": "Figma",
+        "image": "/images/icon-figma.svg"
+    },
+    {
+        "name": "REST API",
+        "image": "/images/icon-api.svg"
+    }
+]
