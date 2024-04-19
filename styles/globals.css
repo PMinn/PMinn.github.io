@@ -31,14 +31,18 @@ body {
     text-wrap: balance;
   }
 } */
+@font-face {
+    font-family: naikaifont;
+    src: url(https://cdn.jsdelivr.net/gh/max32002/naikaifont@1.0/webfont/NaikaiFont-Regular-Lite.woff2) format("woff2");
+}
 
 :root {
-  --theme-color-background: #EAE5E7;
-  --theme-color-primary2: #B0C1D9;
-  --theme-color-primary: #7787A6;
-  --theme-color-primary3: #2A3340;
-  --theme-color-secondary: #BF8C60;
-  --theme-color-secondary2: #A6896F;
+    --theme-color-background: #EAE5E7;
+    --theme-color-primary2: #B0C1D9;
+    --theme-color-primary: #7787A6;
+    --theme-color-primary3: #2A3340;
+    --theme-color-secondary: #BF8C60;
+    --theme-color-secondary2: #A6896F;
 }
 
 /* *::-webkit-scrollbar {
@@ -56,21 +60,61 @@ body {
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Noto Sans TC", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-  background-image: url(/noise.png);
-  background-size: 20%;
-  background-color: var(--theme-color-background);
+    background-image: url(/noise.png);
+    background-size: 20%;
+    background-color: var(--theme-color-background);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.anchor {
+    overflow: hidden;
+    padding-bottom: 2px;
+    height: 1rem;
+    display: block;
+    box-sizing: content-box;
+}
+
+.anchor>span>span {
+    line-height: 1rem;
+    height: 1rem;
+    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.anchor:hover>span>span {
+    transform: translateY(-1rem);
+}
+
+.anchor>span {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.anchor>span::after {
+    display: block;
+    content: '';
+    height: 1px;
+    width: 0;
+    background-color: #000;
+    position: absolute;
+    bottom: -1px;
+    transition: 0.5s all;
+}
+
+.anchor:hover>span:after {
+    width: 100%;
 }

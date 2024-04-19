@@ -4,7 +4,7 @@
         "image": "/images/icon-html.svg"
     },
     {
-        "name": "JS",
+        "name": "JavaScript",
         "image": "/images/icon-js.svg"
     },
     {
@@ -32,7 +32,7 @@
         "image": "/images/icon-tailwind.svg"
     },
     {
-        "name": "react",
+        "name": "React",
         "image": "/images/icon-react.svg"
     },
     {
@@ -60,7 +60,7 @@
         "image": "/images/icon-postman.svg"
     },
     {
-        "name": "blender",
+        "name": "Blender",
         "image": "/images/icon-blender.svg"
     },
     {
@@ -86,5 +86,9 @@
     {
         "name": "Google Apps Script",
         "image": "/images/icon-gas.svg"
+    },
+    {
+        "name": "Chrome 擴充功能",
+        "image": "/images/icon-extension.svg"
     }
 ]

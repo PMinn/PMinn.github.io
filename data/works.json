@@ -1,0 +1,17 @@
+[
+    {
+        "name": "design",
+        "displayName": "介面設計",
+        "image": "images/icon-design.svg"
+    },
+    {
+        "name": "draw",
+        "displayName": "影像處理",
+        "image": "images/icon-draw.svg"
+    },
+    {
+        "name": "server",
+        "displayName": "系統架設",
+        "image": "images/icon-server.svg"
+    }
+]
