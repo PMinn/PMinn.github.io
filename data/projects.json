@@ -26,5 +26,12 @@
         "image": "/images/A11y_Extension.jpeg",
         "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop",
         "color": "black"
+    },
+    {
+        "title": "花蓮恩典咖啡 點餐系統",
+        "description": "一個線上點餐系統，讓顧客可以在家中或是外出時，透過手機或電腦預先點餐，節省等待時間。系統提供了菜單、價格、口味選擇、數量選擇等功能，讓顧客可以輕鬆選擇自己喜歡的餐點，並在到達店家時直接取餐。這個系統不僅提高了顧客的滿意度，還能幫助店家提高效率，減少排隊時間，提升服務品質。",
+        "image": "/images/grace.png",
+        "link": "https://lin.ee/UV3trY0",
+        "color": "white"
     }
 ]

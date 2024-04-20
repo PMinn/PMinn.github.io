@@ -2,13 +2,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 // import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import Carousel from 'react-multi-carousel';
-// import Marquee from "react-fast-marquee";
+import Marquee from "react-fast-marquee";
 // import { useEffect } from 'react';
 
 import projects from '@/data/projects.json';
 import skills from '@/data/skills.json';
 import works from '@/data/works.json';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout';
+import Anchor from '@/components/anchor';
 
 export default function Index() {
     // const { scroll } = useLocomotiveScroll();
@@ -39,37 +40,32 @@ export default function Index() {
                     </div>
                 </div>
                 <div className='h-20 flex justify-center gap-5' data-scroll data-scroll-speed='7' data-scroll-position='top'>
-                    <Link href='https://github.com/PMinn' target='_blank'>GitHub</Link>
-                    <Link href='https://www.instagram.com/min.developer/' target='_blank'>Instagram</Link>
+                    <Anchor href='https://github.com/PMinn' target='_blank'>GitHub</Anchor>
+                    <Anchor href='https://www.instagram.com/min.developer/' target='_blank'>Instagram</Anchor>
                 </div>
             </section>
-            <section className='w-[60%] md:w-full py-20 mx-auto relative' data-scroll-section id='works'>
+            <section className='w-[60%] md:w-full pb-20 mx-auto relative' data-scroll-section id='works'>
                 <div className='absolute top-0 right-0 bottom-0 left-0' id='works_sticky_target'></div>
-                <h2 className='text-4xl text-center font-black pt-5 z-10' data-scroll data-scroll-sticky data-scroll-speed='6' data-scroll-target='#works_sticky_target'>WORKS</h2>
+                <h2 className='text-4xl text-center font-black pt-1 md:pt-5 z-10' data-scroll data-scroll-sticky data-scroll-speed='6' data-scroll-target='#works_sticky_target'>WORKS</h2>
                 {
                     works.map((work, index) => (
-                        <div className='w-full gap-y-4 mb-10 flex flex-col md:flex-row justify-evenly items-center'>
-                            {
-                                index % 2 ?
-                                    <>
-                                        <span className='text-lg md:text-2xl font-black flex'>{work.displayName.split('').map((char, i) => <span key={`${work.name}_${i}`} data-scroll data-scroll-speed='6' data-scroll-delay={0.5 + i * 0.1}>{char}</span>)}</span>
-                                        <img src={work.image} alt={work.displayName} data-scroll data-scroll-speed='6' data-scroll-delay='0.5' />
-                                    </>
-                                    :
-                                    <>
-                                        <img src={work.image} alt={work.displayName} data-scroll data-scroll-speed='6' data-scroll-delay='0.5' />
-                                        <span className='text-lg md:text-2xl font-black flex'>{work.displayName.split('').map((char, i) => <span key={`${work.name}_${i}`} data-scroll data-scroll-speed='6' data-scroll-delay={0.5 + i * 0.1}>{char}</span>)}</span>
-                                    </>
-                            }
+                        <div className={'w-full gap-y-4 mb-10 flex flex-col justify-evenly items-center ' + (index % 2 == 1 ? 'md:flex-row-reverse' : 'md:flex-row')}>
+                            <img src={work.image} alt={work.displayName} data-scroll data-scroll-speed='6' data-scroll-delay='0.5' />
+                            <span className='text-lg md:text-2xl font-black flex'>{work.displayName.split('').map((char, i) => <span key={`${work.name}_${i}`} data-scroll data-scroll-speed='6' data-scroll-delay={0.5 + i * 0.1}>{char}</span>)}</span>
                         </div>
                     ))
                 }
             </section>
+            <section className='bg-[var(--theme-color-primary)] text-2xl py-5 text-white' data-scroll-section>
+                <Marquee autoFill={true} className='overflow-hidden'>
+                    <span>Freelancer</span>
+                    {
+                        Array.from({ length: 20 }).map((_, i) => <span key={i}>&nbsp;</span>)
+                    }
+                </Marquee>
+            </section>
             <section className='w-full py-20' data-scroll-section id='projects'>
                 <h2 className='text-4xl text-center font-black mb-12 pt-5 z-10'>PROJECTS</h2>
-                {/* <div className='absolute top-0 left-0 text-black'>
-                    <Marquee autoFill={true} style={{ fontSize: '200px' }}>PROJECTS</Marquee>
-                </div> */}
                 <Carousel
                     responsive={{
                         desktop: {
@@ -93,27 +89,32 @@ export default function Index() {
                     itemClass='px-[8px] md:px-[2rem]'
                     centerMode={true}
                     ssr={true}
-
                     data-scroll
                     data-scroll-speed='2'
                 >
                     {
                         projects.map((project, i) => (
                             <Link
-                                href={'/projects/' + project.title}
-                                // href={project.link}
-                                // title={project.title + '(另開新視窗)'}
-                                // target='_blank'
+                                href={'/projects/page/' + project.title}
                                 key={'projects_' + i}
                                 className='relative block'
                             >
-                                <h2 className='absolute top-[1.5rem] px-4 text-xl w-full font-bold font-semibold tracking-widest text-center' style={{ color: project.color }}>{project.title}</h2>
-                                <img src={project.image} className='w-full aspect-square md:aspect-video shadow-xl rounded-3xl object-cover transition-all pointer-events-none' alt={project.title + '圖示'} />
+                                <div className='w-full aspect-square absolute top-0 py-[1.5rem] px-4 z-10'>
+                                    <h2 className='w-full text-xl line-clamp-3 font-bold font-semibold tracking-widest text-center pointer-events-non' style={{ color: project.color }}>{project.title}</h2>
+                                </div>
+                                <div className='w-full aspect-square md:aspect-video shadow-xl rounded-3xl overflow-hidden z-0'>
+                                    <div className='hover:scale-110 w-full h-full transition duration-500'>
+                                        <img src={project.image} className='w-full h-full object-cover transition-all pointer-events-none' alt={project.title + '圖示'} />
+                                    </div>
+                                </div>
                                 <p className='w-full mt-4 line-clamp-2 overflow-hidden'>{project.description}</p>
                             </Link>
                         ))
                     }
                 </Carousel>
+                <div className='w-full my-10 flex justify-center'>
+                    <Anchor href='/projects'>More +</Anchor>
+                </div>
             </section>
             <section className='w-full min-h-svh flex flex-col justify-center py-20' data-scroll-section id='skills'>
                 <h2 className='text-4xl text-center font-black mb-12 z-10'>SKILLS</h2>
