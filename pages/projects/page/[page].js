@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Layout from '@/components/layout';
 import projects from '@/data/projects.json';
 
+import Markdown from 'markdown-to-jsx';
 
 export default function Projects({ project }) {
     const router = useRouter();
@@ -31,7 +32,9 @@ export default function Projects({ project }) {
             <section className='mx-auto w-[90%] max-w-[80rem]' data-scroll-section>
                 <h1 className='text-4xl font-black flex mb-5'>{project.title}</h1>
                 <img src={project.image} alt={project.title + '圖片'} className='rounded-3xl w-full mx-auto' />
-                <p className='tracking-widest leading-8 mt-5'>{project.description}</p>
+                <p className='tracking-widest leading-8 mt-5'>
+                    <Markdown>{project.description}</Markdown>
+                </p>
                 <div className='flex justify-end mt-10'>
                     <Anchor href={project.link} className='ml-auto' target='_blank'>前往連結 →</Anchor>
                 </div>
