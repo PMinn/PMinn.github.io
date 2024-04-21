@@ -23,7 +23,7 @@ export default function Index() {
             <Head>
                 <title>I am P'Min</title>
             </Head>
-            <section className='w-full h-svh flex flex-col justify-center items-center' data-scroll-section>
+            <section className='w-full h-[85vh] mb-10 flex flex-col justify-center items-center' data-scroll-section>
                 <div className='w-full grow flex flex-col md:flex-row-reverse justify-center items-center gap-9 md:gap-0 relative' id='cover'>
                     {/* 粉 */}
                     <div className='w-[40%] md:w-[13%] bottom-[5%] md:bottom-[15%] left-[-20%] md:left-[10%] absolute aspect-square rounded-full bg-[#d15173] z-0' data-scroll data-scroll-speed='-3' data-scroll-position='top'></div>
@@ -36,7 +36,7 @@ export default function Index() {
                     </div>
                     <div className='md:w-full md:h-full flex flex-col justify-center items-center gap-5' data-scroll data-scroll-speed='5' data-scroll-direction='horizontal' data-scroll-position='top' data-scroll-target='#cover'>
                         <h1 className='text-6xl mb-8 font-black'>P'Min</h1>
-                        <div className='text-2xl font-light'>A full-stack engineer.</div>
+                        <div className='text-lg md:text-2xl font-light'>A full-stack engineer.</div>
                     </div>
                 </div>
                 <div className='h-20 flex justify-center gap-5' data-scroll data-scroll-speed='7' data-scroll-position='top'>
