@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.0",
     "@next/font": "^14.2.2",
+    "gsap": "^3.12.5",
     "locomotive-scroll": "^4.1.4",
     "markdown-to-jsx": "^7.4.7",
     "next": "13.5.6",
