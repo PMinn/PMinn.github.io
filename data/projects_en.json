@@ -1,0 +1,68 @@
+[
+    {
+        "title": "Efficient Deployment of User Satisfaction Optimization in Multi-UAV Networks",
+        "description": "The research focuses on the deployment of unmanned aerial vehicle base stations (UAV-BSs) in three-dimensional space. It aims to enhance user satisfaction on the ground by utilizing a novel algorithm that improves data transmission rates for non-uniformly distributed users. This algorithm prevents any single UAV-BS from serving too many users, thereby enhancing the overall user experience.",
+        "image": "/images/Efficient_Deployment_of_User_Satisfaction_Optimization_in_Multi-UAV_Networks2.png",
+        "client": "",
+        "year": "2023",
+        "content": [
+            "Research"
+        ],
+        "link": "https://ieeexplore.ieee.org/document/10234047",
+        "color": "black"
+    },
+    {
+        "title": "daily PCCU",
+        "description": "A comprehensive campus information assistant, accessible via a Line bot, provides real-time weather updates, bus arrival notifications, important campus announcements, dining recommendations, daily horoscopes, and quick links to on-campus web pages. This bot delivers the latest and fastest services for various commonly used information within the campus, making your campus life more convenient and enriched. You can effortlessly plan your day’s activities and access the information you need at any time.",
+        "image": "/images/daily-pccu.web.app.jpeg",
+        "client": "",
+        "year": "2020",
+        "content": [
+            "UI/UX Design",
+            "Web",
+            "Line Bot"
+        ],
+        "link": "https://daily-pccu.web.app/",
+        "color": "black"
+    },
+    {
+        "title": "Origin Performing Art Website",
+        "description": "Origin’s official website provides the latest updates, member introductions, and highlights from past performances. Whether you’re a fan or a new audience member, you can find rich content and information on this website.",
+        "image": "/images/origin-performing-art.web.app.jpeg",
+        "client": "Origin",
+        "year": "2022",
+        "content": [
+            "UI/UX Design",
+            "Web"
+        ],
+        "link": "https://origin-performing-art.web.app/",
+        "color": "white"
+    },
+    {
+        "title": "Web Accessibility Testing",
+        "description": "A Chrome extension based on axe-core, designed to comprehensively test website accessibility. This tool evaluates whether a website meets accessibility requirements and provides detailed audit reports, highlighting both strengths and weaknesses in terms of accessibility. It assists website developers in targeted optimization to expand their audience reach, comply with legal requirements, and enhance brand image. Installing this extension can make your website more inclusive, providing a friendlier web experience for all users.",
+        "image": "/images/A11y_Extension.jpeg",
+        "client": "",
+        "year": "2024",
+        "content": [
+            "UI/UX Design",
+            "Chrome Extension"
+        ],
+        "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop",
+        "color": "black"
+    },
+    {
+        "title": "Hualien Grace Cafe Ordering System",
+        "description": "An online ordering system allows customers to pre-order meals from their homes or while on the go using their mobile phones or computers, thereby saving waiting time. The system provides features such as menus, prices, flavor choices, and quantity selection, enabling customers to easily choose their favorite dishes. Upon arriving at the restaurant, they can directly collect their orders. This system not only enhances customer satisfaction but also helps businesses improve efficiency, reduce queue times, and elevate service quality.",
+        "image": "/images/grace.png",
+        "client": "Hualien Grace Cafe",
+        "year": "2021",
+        "content": [
+            "UI/UX Design",
+            "Web",
+            "Line Bot"
+        ],
+        "link": "https://lin.ee/UV3trY0",
+        "color": "white"
+    }
+]

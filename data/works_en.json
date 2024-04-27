@@ -1,7 +1,7 @@
 [
     {
         "name": "design",
-        "displayName": "介面設計",
+        "displayName": "UI/UX Design",
         "image": {
             "url": "images/icon-design.svg",
             "width": 374,
@@ -10,8 +10,8 @@
         "rotate": 0
     },
     {
-        "name": "draw",
-        "displayName": "影像處理",
+        "name": "image",
+        "displayName": "Image Processing",
         "image": {
             "url": "images/icon-draw.svg",
             "width": 274,
@@ -21,7 +21,7 @@
     },
     {
         "name": "server",
-        "displayName": "系統架設",
+        "displayName": "Server Development",
         "image": {
             "url": "images/icon-server.svg",
             "width": 360,
