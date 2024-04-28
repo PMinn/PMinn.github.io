@@ -23,7 +23,6 @@ export default function Home() {
     useEffect(() => {
         const locomotiveScroll = getLocomotiveScroll();
         if (locomotiveScroll) {
-            window.gsap = gsap;
             let ctx = gsap.context(() => {
                 const pageContainer = document.querySelector("main[data-scroll-container]");
 

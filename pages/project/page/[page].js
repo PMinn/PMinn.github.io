@@ -15,7 +15,7 @@ import { useScroll } from "@/providers/scroll";
 import projects from '@/data/projects_en.json';
 
 
-export default function Projects({ project, alpha, setAlpha }) {
+export default function Projects({ project }) {
     const router = useRouter();
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
     gsap.registerPlugin(ScrollTrigger);
@@ -23,7 +23,6 @@ export default function Projects({ project, alpha, setAlpha }) {
     useEffect(() => {
         const locomotiveScroll = getLocomotiveScroll();
         if (locomotiveScroll) {
-            window.gsap = gsap;
             let ctx = gsap.context(() => {
                 const pageContainer = document.querySelector("main[data-scroll-container]");
 
