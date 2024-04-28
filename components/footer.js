@@ -7,8 +7,8 @@ export default function Footer() {
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
 
     return (
-        <footer className='min-h-[150vh] relative text-white mt-20 flex flex-col justify-end transition-colors' style={{ '--color': '#fff' }} data-scroll-section>
-            <div className='min-h-svh flex flex-col w-full max-w-[80rem] mx-auto pt-10' data-scroll>
+        <footer className='min-h-[150vh] relative text-white flex flex-col justify-end transition-colors' style={{ '--color': '#fff' }} data-scroll-section>
+            <div className='min-h-svh flex flex-col w-[90%] max-w-[80rem] mx-auto pt-10' data-scroll>
                 <div className='flex justify-between grow'>
                     <div className='ml-5'>
                         <div className='font-black text-3xl'>Let's<br />Connect.</div>

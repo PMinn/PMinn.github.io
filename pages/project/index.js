@@ -41,11 +41,11 @@ export default function ProjectsList() {
                     pinType: "transform"
                 });
 
-                gsap.to("footer", {
+                gsap.to(pageContainer, {
                     scrollTrigger: {
                         scroller: pageContainer,
                         scrub: true,
-                        trigger: 'footer',
+                        trigger: "footer",
                         start: "top top",
                         end: "bottom bottom",
                         // markers: true,
@@ -74,8 +74,8 @@ export default function ProjectsList() {
                     path: '/'
                 },
                 {
-                    name: 'Projects',
-                    path: '/projects'
+                    name: 'Project',
+                    path: '/project'
                 }
             ]}
         >

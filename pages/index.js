@@ -72,11 +72,11 @@ export default function Home() {
                     ease: "none"
                 });
 
-                gsap.to("footer", {
+                gsap.to(pageContainer, {
                     scrollTrigger: {
                         scroller: pageContainer,
                         scrub: true,
-                        trigger: 'footer',
+                        trigger: "footer",
                         start: "top top",
                         end: "bottom bottom",
                         // markers: true,
@@ -103,7 +103,7 @@ export default function Home() {
                 <title>I am P'Min</title>
             </Head>
             <section className='min-h-svh relative' data-scroll-section id='cover'>
-                <h1 className='h1 text-7xl absolute top-[10vw] left-[10vw] font-extrabold z-0' data-scroll data-scroll-position="bottom">P'Min</h1>
+                <h1 className='text-[16vw] md:text-7xl absolute top-[10vw] left-[10vw] font-extrabold z-0' data-scroll data-scroll-position="bottom">P'Min</h1>
                 <div className='absolute bottom-[10vw] right-[10vw] z-10 flex gap-5'>
                     <Anchor href='https://github.com/PMinn' target='_blank'>GitHub</Anchor>
                     <Anchor href='https://www.instagram.com/min.developer/' target='_blank'>Instagram</Anchor>
@@ -113,22 +113,22 @@ export default function Home() {
                 </div>
             </section>
             <section data-scroll-section>
-                <div id="sectionPin">
-                    <div className="pin-wrap">
-                        <h2 className='text-3xl max-w-[400px]'>Just Something I Made</h2>
+                <div id="sectionPin" className='h-svh overflow-hidden flex bg-[#080808] text-white'>
+                    <div className="pin-wrap h-full flex justify-start items-center">
+                        <h2 className='text-3xl w-[90vw] max-w-[400px] pl-5'>Just Something I Made</h2>
                         {
                             projects.map((project, i) => (
                                 <Link
                                     href={'/project/page/' + project.title}
                                     key={'projects_' + i}
-                                    className='relative block h-[32rem]'
+                                    className='relative block w-[120vw] md:w-auto md:h-[32rem] p-[5vw]'
                                 >
-                                    <div className='h-full aspect-square md:aspect-video shadow-xl overflow-hidden z-0'>
+                                    <div className='h-full aspect-video shadow-xl overflow-hidden z-0'>
                                         <div className='hover:scale-110 w-full h-full transition duration-500'>
                                             <img src={project.image} className='w-full h-full object-cover transition-all pointer-events-none' alt={project.title + '圖示'} />
                                         </div>
                                     </div>
-                                    <div className='w-full mt-5 line-clamp-2 overflow-hidden'>{project.title}</div>
+                                    <div className='w-full text-xs mt-2 md:mt-5 line-clamp-2 overflow-hidden' style={{ height: '3em' }}>{project.title}</div>
                                 </Link>
                             ))
                         }
@@ -136,14 +136,14 @@ export default function Home() {
                 </div>
             </section>
             <section data-scroll-section>
-                <div className='flex flex-col md:flex-row gap-[5rem] w-[90%] max-w-[80rem] mx-auto' style={{ marginTop: 'calc(50vh - 16rem)', marginBottom: 'calc(50vh - 16rem)' }}>
-                    <div className='w-full md:w-1/2 inline-block align-top text-7xl' id='works_fixed_elements' >
+                <div className='flex flex-col md:flex-row gap-[5rem] w-[90%] max-w-[80rem] mx-auto md:mt-[var(--margin-y)]' style={{ '--margin-y': 'calc(50vh - 16rem)'}}>
+                    <div className='w-full md:w-1/2 inline-block align-top text-5xl' id='works_fixed_elements' >
                         <h1 className='pt-10 pl-10' data-scroll data-scroll-sticky data-scroll-target="#works_fixed_elements">What I do</h1>
                     </div>
-                    <div className='w-full md:w-1/2 pt-10 relative'>
+                    <div className='w-full md:w-1/2 md:pt-10 relative'>
                         {
                             works.map((work, index) => (
-                                <div className={`w-full gap-5 mb-16 flex flex-col justify-evenly items-center border-2 border-black px-16 py-8 ${index % 2 == 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`} style={{ transform: `rotate(${work.rotate}deg)` }} key={`work_${index}`}>
+                                <div className={`w-full gap-5 mb-16 flex justify-evenly items-center border-2 border-black px-8 py-4 md:px-16 md:py-8 ${index % 2 == 1 ? 'flex-row-reverse' : 'flex-row'}`} style={{ transform: `rotate(${work.rotate}deg)` }} key={`work_${index}`}>
                                     <div className='w-1/2 h-full'>
                                         <img src={work.image.url} alt={work.displayName} className='h-full object-contain' style={{ width: `${work.image.width * 100 / maxWorkImageWidth}%` }} />
                                     </div>
