@@ -2,7 +2,7 @@
     {
         "title": "Efficient Deployment of User Satisfaction Optimization in Multi-UAV Networks",
         "description": "The research focuses on the deployment of unmanned aerial vehicle base stations (UAV-BSs) in three-dimensional space. It aims to enhance user satisfaction on the ground by utilizing a novel algorithm that improves data transmission rates for non-uniformly distributed users. This algorithm prevents any single UAV-BS from serving too many users, thereby enhancing the overall user experience.",
-        "image": "/images/Efficient_Deployment_of_User_Satisfaction_Optimization_in_Multi-UAV_Networks2.png",
+        "image": "/images/Efficient_Deployment_of_User_Satisfaction_Optimization_in_Multi-UAV_Networks.png",
         "client": "",
         "year": "2023",
         "content": [
@@ -28,7 +28,7 @@
     {
         "title": "Origin Performing Art Website",
         "description": "Origin’s official website provides the latest updates, member introductions, and highlights from past performances. Whether you’re a fan or a new audience member, you can find rich content and information on this website.",
-        "image": "/images/origin-performing-art.web.app.jpeg",
+        "image": "/images/origin-performing-art.png",
         "client": "Origin",
         "year": "2022",
         "content": [
@@ -41,7 +41,7 @@
     {
         "title": "Web Accessibility Testing",
         "description": "A Chrome extension based on axe-core, designed to comprehensively test website accessibility. This tool evaluates whether a website meets accessibility requirements and provides detailed audit reports, highlighting both strengths and weaknesses in terms of accessibility. It assists website developers in targeted optimization to expand their audience reach, comply with legal requirements, and enhance brand image. Installing this extension can make your website more inclusive, providing a friendlier web experience for all users.",
-        "image": "/images/A11y_Extension.jpeg",
+        "image": "/images/A11y_Extension.png",
         "client": "",
         "year": "2024",
         "content": [
