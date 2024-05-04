@@ -144,9 +144,7 @@ export default function Home() {
                 </div>
             </section>
             <section data-scroll-section className='relative min-h-svh'>
-                <div data-scroll data-scroll-speed="3" className='absolute top-[15vh] right-2 md:right-[5rem]'>
-                    <h2 className='text-2xl inline-block border-l border-black tracking-wider pl-[0.5rem]' style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}>WHAT I DO</h2>
-                </div>
+                <h2 className='absolute top-[15vh] right-2 md:right-[5rem] text-2xl inline-block border-l border-black tracking-wider pl-[0.5rem]' style={{ writingMode: 'vertical-rl' }} data-scroll data-scroll-speed="3" >WHAT I DO</h2>
                 <div className='flex flex-col md:flex-row mt-[5vh] px-[1rem] md:px-[5rem] md:gap-[5rem]'>
                     <div data-scroll data-scroll-speed="1" className='mt-[5vh] w-full pr-[3rem] md:pr-0 md:w-4/5'>
                         <img src="/images/design-daily-pccu-1.png" className='w-full h-auto' alt="" />
@@ -166,7 +164,7 @@ export default function Home() {
                         <p>I have experience in image processing.</p>
                     </div>
                 </div>
-                <div className='flex flex-col md:flex-row justify-around mt-[5vh]'>
+                <div className='flex flex-col md:flex-row justify-around mt-[5vh] px-[1rem] md:px-0'>
                     <div className='pt-[15vh] text-center' data-scroll data-scroll-speed="2">
                         <h3 className='text-2xl mb-2'>Server Development</h3>
                         <p>Experience in deploying Firebase and Vercel servers using CLI and CI/CD.</p>
