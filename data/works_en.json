@@ -2,6 +2,7 @@
     {
         "name": "design",
         "displayName": "UI/UX Design",
+        "detail": "My aim to create interfaces that users find easy to use and pleasurable.",
         "image": {
             "url": "images/icon-design.svg",
             "width": 374,
@@ -12,6 +13,7 @@
     {
         "name": "image",
         "displayName": "Image Processing",
+        "detail": "I have experience in image processing.",
         "image": {
             "url": "images/icon-draw.svg",
             "width": 274,
@@ -22,6 +24,7 @@
     {
         "name": "server",
         "displayName": "Server Development",
+        "detail": "Experience in deploying Firebase and Vercel servers using CLI and CI/CD.",
         "image": {
             "url": "images/icon-server.svg",
             "width": 360,

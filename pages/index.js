@@ -58,17 +58,20 @@ export default function Home() {
                     ease: "none"
                 });
 
-                gsap.to("#avatar img", {
+                gsap.to("#cover>div", {
                     scrollTrigger: {
                         scroller: pageContainer,
                         scrub: true,
                         trigger: "#cover",
+                        // pin: true,
+                        // anticipatePin: 1,
                         start: "top top",
-                        end: "bottom top",
+                        end: "bottom center",
                         // markers: true,
                     },
-                    rotateZ: 360,
-                    scale: 0,
+                    opacity: 0,
+                    scale: 0.8,
+                    y: window.innerHeight / 2,
                     ease: "none"
                 });
 
@@ -102,17 +105,22 @@ export default function Home() {
             <Head>
                 <title>I am P'Min</title>
             </Head>
-            <section className='min-h-svh relative' data-scroll-section id='cover'>
-                <h1 className='text-[16vw] md:text-7xl absolute top-[10vw] left-[10vw] font-extrabold z-0' data-scroll data-scroll-position="bottom">P'Min</h1>
-                <div className='absolute bottom-[10vw] right-[10vw] z-10 flex gap-5'>
-                    <Anchor href='https://github.com/PMinn' target='_blank'>GitHub</Anchor>
-                    <Anchor href='https://www.instagram.com/min.developer/' target='_blank'>Instagram</Anchor>
-                </div>
-                <div className='absolute top-0 left-0 w-full h-full flex justify-center items-center z-0' id='avatar'>
-                    <img src='/images/avatar.jpg' alt='avatar' className='rounded-full w-[80%] md:w-[44%] max-w-[500px] mx-auto ' width='500' height='500' />
+            <section data-scroll-section id='cover'>
+                <div className='min-h-svh relative'>
+                    <h1 className='text-[16vw] md:text-7xl absolute top-[10vh] left-[10vw] font-extrabold z-0'>P'Min</h1>
+                    <div className='absolute top-0 left-0 w-full h-full flex justify-center items-center z-0' id='avatar'>
+                        <img src='/images/avatar.jpg' alt='avatar' className='rounded-full w-[80%] md:w-[44%] max-w-[500px] mx-auto ' width='500' height='500' />
+                    </div>
+                    <div className='absolute bottom-[4vh] md:bottom-[10vh] right-[10vw] z-10 flex gap-5'>
+                        <Anchor href='https://github.com/PMinn' target='_blank'>GitHub</Anchor>
+                        <Anchor href='https://www.instagram.com/min.developer/' target='_blank'>Instagram</Anchor>
+                    </div>
                 </div>
             </section>
-            <section data-scroll-section>
+            <section data-scroll-section className='relative'>
+                <div className='absolute bottom-[10vh] left-[10vw] text-xl'>A Full-Stack Developer <br />Who Loves To Create Things.</div>
+            </section>
+            <section data-scroll-section id='projects'>
                 <div id="sectionPin" className='h-svh overflow-hidden flex bg-[#080808] text-white'>
                     <div className="pin-wrap h-full flex justify-start items-center">
                         <h2 className='text-3xl w-[90vw] max-w-[400px] pl-5'>Just Something I Made</h2>
@@ -135,23 +143,35 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section data-scroll-section>
-                <div className='flex flex-col md:flex-row gap-[5rem] w-[90%] max-w-[80rem] mx-auto md:mt-[var(--margin-y)]' style={{ '--margin-y': 'calc(50vh - 16rem)'}}>
-                    <div className='w-full md:w-1/2 inline-block align-top text-5xl' id='works_fixed_elements' >
-                        <h1 className='pt-10 pl-10' data-scroll data-scroll-sticky data-scroll-target="#works_fixed_elements">What I do</h1>
+            <section data-scroll-section className='relative min-h-svh'>
+                <div data-scroll data-scroll-speed="3" className='absolute top-[15vh] right-2 md:right-[5rem]'>
+                    <h2 className='text-2xl inline-block border-l border-black tracking-wider pl-[0.5rem]' style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}>WHAT I DO</h2>
+                </div>
+                <div className='flex flex-col md:flex-row mt-[5vh] px-[1rem] md:px-[5rem] md:gap-[5rem]'>
+                    <div data-scroll data-scroll-speed="1" className='mt-[5vh] w-full pr-[3rem] md:pr-0 md:w-4/5'>
+                        <img src="/images/design-daily-pccu-1.png" className='w-full h-auto' alt="" />
                     </div>
-                    <div className='w-full md:w-1/2 md:pt-10 relative'>
-                        {
-                            works.map((work, index) => (
-                                <div className={`w-full gap-5 mb-16 flex justify-evenly items-center border-2 border-black px-8 py-4 md:px-16 md:py-8 ${index % 2 == 1 ? 'flex-row-reverse' : 'flex-row'}`} style={{ transform: `rotate(${work.rotate}deg)` }} key={`work_${index}`}>
-                                    <div className='w-1/2 h-full'>
-                                        <img src={work.image.url} alt={work.displayName} className='h-full object-contain' style={{ width: `${work.image.width * 100 / maxWorkImageWidth}%` }} />
-                                    </div>
-                                    <span className='text-lg md:text-2xl font-black w-1/2 text-center'>{work.displayName}</span>
-                                </div>
-                            ))
-                        }
+                    <div className='md:pt-[40vh]'>
+                        <div className='pr-[3rem]' data-scroll data-scroll-speed="2">
+                            <h3 className='text-2xl mb-2'>UI/UX Design</h3>
+                            <p>My aim to create interfaces that users find easy to use and pleasurable.</p>
+                        </div>
+                        <img src="/images/design-daily-pccu-2.png" className='w-full md:mt-[20vh]' alt="" data-scroll data-scroll-speed="4" />
                     </div>
+                </div>
+                <div className='flex flex-col-reverse md:flex-row md:gap-[8vw] mt-[5vh] px-[1rem] md:px-0'>
+                    <img src="/images/image-processing-1.png" className='w-full md:w-3/5' alt="" data-scroll data-scroll-speed="5" />
+                    <div className='pt-[10vh] text-center md:text-left' data-scroll data-scroll-speed="2">
+                        <h3 className='text-2xl mb-2'>Image Processing</h3>
+                        <p>I have experience in image processing.</p>
+                    </div>
+                </div>
+                <div className='flex flex-col md:flex-row justify-around mt-[5vh]'>
+                    <div className='pt-[15vh] text-center' data-scroll data-scroll-speed="2">
+                        <h3 className='text-2xl mb-2'>Server Development</h3>
+                        <p>Experience in deploying Firebase and Vercel servers using CLI and CI/CD.</p>
+                    </div>
+                    <img src="/images/deploy-1.png" className='w-full md:w-1/2 md:h-[80vh] object-contain bg-[#80A6E7]' alt="" data-scroll data-scroll-speed="5" />
                 </div>
             </section>
         </Layout >

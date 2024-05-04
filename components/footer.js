@@ -8,7 +8,7 @@ export default function Footer() {
 
     return (
         <footer className='min-h-[150vh] relative text-white flex flex-col justify-end transition-colors' style={{ '--color': '#fff' }} data-scroll-section>
-            <div className='min-h-svh flex flex-col w-[90%] max-w-[80rem] mx-auto pt-10' data-scroll>
+            <div className='min-h-svh flex flex-col w-[90%] max-w-[80rem] mx-auto py-[10vh]' data-scroll>
                 <div className='flex justify-between grow'>
                     <div className='ml-5'>
                         <div className='font-black text-3xl'>Let's<br />Connect.</div>
@@ -33,7 +33,7 @@ export default function Footer() {
                     <div className='hover:bg-[var(--color)] hover:text-black transition duration-300 relative overflow-hidden cursor-pointer rounded-full border border-white aspect-square flex justify-center items-center w-[70px]' onClick={() => getLocomotiveScroll()?.scrollTo(0)}>↑</div>
                 </div>
                 <hr />
-                <small className='w-full block pt-1 text-center pb-5'>© 2024 P'Min. All rights reserved</small>
+                <small className='w-full block pt-1 text-center'>© 2024 P'Min. All rights reserved</small>
             </div>
         </footer>
     )

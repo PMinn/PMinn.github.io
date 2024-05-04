@@ -1,7 +1,8 @@
 [
     {
         "name": "design",
-        "displayName": "介面設計",
+        "displayName": "使用者體驗及介面設計",
+        "detail": "我的目標是創建一個用戶覺得易於使用且令人愉悅的介面。",
         "image": {
             "url": "images/icon-design.svg",
             "width": 374,
