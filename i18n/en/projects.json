@@ -8,8 +8,7 @@
         "content": [
             "Research"
         ],
-        "link": "https://ieeexplore.ieee.org/document/10234047",
-        "color": "black"
+        "link": "https://ieeexplore.ieee.org/document/10234047"
     },
     {
         "title": "daily PCCU",
@@ -22,8 +21,7 @@
             "Web",
             "Line Bot"
         ],
-        "link": "https://daily-pccu.web.app/",
-        "color": "black"
+        "link": "https://daily-pccu.web.app/"
     },
     {
         "title": "Origin Performing Art Website",
@@ -35,8 +33,7 @@
             "UI/UX Design",
             "Web"
         ],
-        "link": "https://origin-performing-art.web.app/",
-        "color": "white"
+        "link": "https://origin-performing-art.web.app/"
     },
     {
         "title": "Web Accessibility Testing",
@@ -48,8 +45,7 @@
             "UI/UX Design",
             "Chrome Extension"
         ],
-        "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop",
-        "color": "black"
+        "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop"
     },
     {
         "title": "Hualien Grace Cafe Ordering System",
@@ -62,7 +58,6 @@
             "Web",
             "Line Bot"
         ],
-        "link": "https://lin.ee/UV3trY0",
-        "color": "white"
+        "link": "https://lin.ee/UV3trY0"
     }
 ]

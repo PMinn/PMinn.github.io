@@ -12,10 +12,9 @@ import Anchor from '@/components/anchor';
 
 import { useScroll } from "@/providers/scroll";
 
-import projects from '@/data/projects_en.json';
+import { projects, common } from '@/i18n/index';
 
-
-export default function Projects({ project }) {
+export default function Projects({ project, locale }) {
     const router = useRouter();
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
     gsap.registerPlugin(ScrollTrigger);
@@ -70,11 +69,11 @@ export default function Projects({ project }) {
         <Layout
             breadcrumb={[
                 {
-                    name: 'Home',
+                    name: common[locale].home,
                     path: '/'
                 },
                 {
-                    name: 'Project',
+                    name: common[locale].projects,
                     path: '/project'
                 },
                 {
@@ -82,6 +81,7 @@ export default function Projects({ project }) {
                     path: '/project/page/' + project.title
                 }
             ]}
+            locale={locale}
         >
             <Head>
                 <title>{project.title} - P'Min</title>
@@ -93,19 +93,19 @@ export default function Projects({ project }) {
                         <Markdown>{project.description}</Markdown>
                     </p>
                     <div className='flex gap-2'>
-                        <div className='w-1/4'>Client:</div>
+                        <div className='w-1/4'>{common[locale].client}:</div>
                         <div className='w-3/4'>{project.client}</div>
                     </div>
                     <div className='flex gap-2'>
-                        <div className='w-1/4'>Year:</div>
+                        <div className='w-1/4'>{common[locale].year}:</div>
                         <div className='w-3/4'>{project.year}</div>
                     </div>
                     <div className='flex gap-2'>
-                        <div className='w-1/4'>Content:</div>
+                        <div className='w-1/4'>{common[locale].content}:</div>
                         <div className='w-3/4'>{project.content.join(", ")}</div>
                     </div>
                     <div className='flex justify-end mt-10'>
-                        <Anchor href={project.link} className='ml-auto' target='_blank'>Link →</Anchor>
+                        <Anchor href={project.link} className='ml-auto' target='_blank'>{common[locale].link} →</Anchor>
                     </div>
                 </div>
                 <div className='md:w-1/2 mb-5'>
@@ -113,29 +113,32 @@ export default function Projects({ project }) {
                 </div>
             </section>
             <section className='w-[90%] max-w-[80rem] mx-auto mt-5 pb-20 flex justify-center' data-scroll-section>
-                <Anchor onClick={router.back}>← Back</Anchor>
+                <Anchor onClick={router.back}>← {common[locale].back}</Anchor>
             </section>
         </Layout>
     )
 }
 
-export async function getStaticProps({ params }) {
-    const { page } = params;
+export async function getStaticProps({ params, locale }) {
+    const { index } = params;
     return {
         props: {
-            project: projects.find(project => project.title == page)
+            project: projects[locale][index - 1],
+            locale
         },
         // revalidate: 1
     };
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }) {
+    let paths = [];
+    for (const locale of locales) {
+        for (let i = 0; i < projects[locale].length; i++) {
+            paths.push({ params: { index: (i + 1).toString() }, locale });
+        }
+    }
     return {
-        paths: projects.map(project => ({
-            params: {
-                page: project.title
-            }
-        })),
+        paths,
         fallback: false, // false or "blocking"
     }
 }

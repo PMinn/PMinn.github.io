@@ -2,36 +2,62 @@
     {
         "title": "異質使用者密度分布應用環境下最大化滿足率之無人機佈署演算法",
         "description": "研究著重於三維空間中無人機基地台（UAV-BSs）的部署，透過一個新算法提升非均勻分佈的地面使用者滿意度。此算法避免單一 UAV-BS 服務過多使用者，以增加每位使用者的數據傳輸率，進而提升整體使用者體驗。",
-        "image": "/images/Efficient_Deployment_of_User_Satisfaction_Optimization_in_Multi-UAV_Networks2.png",
-        "link": "https://ieeexplore.ieee.org/document/10234047",
-        "color": "black"
+        "image": "/images/Efficient_Deployment_of_User_Satisfaction_Optimization_in_Multi-UAV_Networks.png",
+        "client": "",
+        "year": "2023",
+        "content": [
+            "研究論文"
+        ],
+        "link": "https://ieeexplore.ieee.org/document/10234047"
     },
     {
         "title": "每日文大",
         "description": "一個全方位的校園資訊助手，透過 Line bot 能提供即時的天氣資訊、公車進站通知、校內重要消息、吃飯建議、每日星座運勢，以及快速連結到校園即景網頁。在校園中常用的各種資訊，這個 bot 都能提供最新、最快速的服務，讓您的校園生活更加便捷與豐富，您可以輕鬆規劃一天的活動，並隨時獲得您所需的資訊。",
         "image": "/images/daily-pccu.web.app.jpeg",
-        "link": "https://daily-pccu.web.app/",
-        "color": "black"
+        "client": "",
+        "year": "2020",
+        "content": [
+            "使用者體驗及介面設計",
+            "網頁",
+            "Line Bot"
+        ],
+        "link": "https://daily-pccu.web.app/"
     },
     {
         "title": "起源劇團",
         "description": "Origin 起源劇團的官方網站。網站提供了劇團的最新消息，還有劇團的成員介紹及過往演出的精彩瞬間。無論是劇團的粉絲還是新觀眾，都能在這個網站上找到豐富的內容和資訊。",
-        "image": "/images/origin-performing-art.web.app.jpeg",
-        "link": "https://origin-performing-art.web.app/",
-        "color": "white"
+        "image": "/images/origin-performing-art.png",
+        "client": "起源劇團",
+        "year": "2022",
+        "content": [
+            "使用者體驗及介面設計",
+            "網頁"
+        ],
+        "link": "https://origin-performing-art.web.app/"
     },
     {
         "title": "無障礙檢測",
         "description": "一款基於 axe-core 的 Chrome 擴充功能，旨在全面檢測網站的無障礙性。這個工具能夠評估網站是否符合無障礙需求，並提供詳細的檢測報告，指出網站在無障礙性方面的優勢和不足之處。這有助於網站開發者針對性地優化網站，以擴大受眾範圍，符合法規要求，並提升品牌形象。安裝這個擴充功能，可以讓您的網站更加包容，為所有使用者提供更友善的網頁體驗。",
-        "image": "/images/A11y_Extension.jpeg",
-        "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop",
-        "color": "black"
+        "image": "/images/A11y_Extension.png",
+        "client": "",
+        "year": "2024",
+        "content": [
+            "使用者體驗及介面設計",
+            "Chrome 擴充功能"
+        ],
+        "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop"
     },
     {
         "title": "花蓮恩典咖啡 點餐系統",
         "description": "一個線上點餐系統，讓顧客可以在家中或是外出時，透過手機或電腦預先點餐，節省等待時間。系統提供了菜單、價格、口味選擇、數量選擇等功能，讓顧客可以輕鬆選擇自己喜歡的餐點，並在到達店家時直接取餐。這個系統不僅提高了顧客的滿意度，還能幫助店家提高效率，減少排隊時間，提升服務品質。",
         "image": "/images/grace.png",
-        "link": "https://lin.ee/UV3trY0",
-        "color": "white"
+        "client": "花蓮恩典咖啡",
+        "year": "2021",
+        "content": [
+            "使用者體驗及介面設計",
+            "網頁",
+            "Line Bot"
+        ],
+        "link": "https://lin.ee/UV3trY0"
     }
 ]

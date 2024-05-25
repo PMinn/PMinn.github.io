@@ -19,8 +19,6 @@ const noto_Sans_TC = Noto_Sans_TC({
 });
 
 export default function App({ Component, pageProps }) {
-    const router = useRouter();
-
     return (
         <ScrollProvider
             options={{

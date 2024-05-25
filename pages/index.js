@@ -10,15 +10,13 @@ import Anchor from '@/components/anchor';
 
 import { useScroll } from "@/providers/scroll";
 
-import projects from '@/data/projects_en.json';
-import works from '@/data/works_en.json';
+import { projects, common, works } from '@/i18n/index';
+// import works from '@/i18n/works_en.json';
 
-
-export default function Home() {
+export default function Home({ locale }) {
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
     gsap.registerPlugin(ScrollTrigger);
 
-    const maxWorkImageWidth = Math.max(...works.map(work => work.image.width));
 
     useEffect(() => {
         const locomotiveScroll = getLocomotiveScroll();
@@ -101,7 +99,7 @@ export default function Home() {
     }, [isScrollLoaded])
 
     return (
-        <Layout>
+        <Layout locale={locale}>
             <Head>
                 <title>I am P'Min</title>
             </Head>
@@ -118,16 +116,16 @@ export default function Home() {
                 </div>
             </section>
             <section data-scroll-section className='relative'>
-                <div className='absolute bottom-[15svh] md:bottom-[10svh] left-[10vw] text-sm md:text-xl'>A Full-Stack Developer <br />Who Loves To Create Things.</div>
+                <div className='absolute bottom-[15svh] md:bottom-[10svh] left-[10vw] text-sm md:text-xl' dangerouslySetInnerHTML={{ __html: common[locale].intro }} />
             </section>
             <section data-scroll-section id='projects'>
                 <div id="sectionPin" className='h-svh overflow-hidden flex bg-[#080808] text-white'>
                     <div className="pin-wrap h-full flex justify-start items-center">
-                        <h2 className='text-3xl w-[90vw] max-w-[400px] pl-5'>Just Something I Made</h2>
+                        <h2 className='text-3xl w-[90vw] max-w-[400px] pl-5'>{common[locale].just_something_i_made}</h2>
                         {
-                            projects.map((project, i) => (
+                            projects[locale].map((project, i) => (
                                 <Link
-                                    href={'/project/page/' + project.title}
+                                    href={'/project/page/' + (i + 1)}
                                     key={'projects_' + i}
                                     className='relative block w-[120vw] md:w-auto md:h-[32rem] p-[5vw]'
                                 >
@@ -144,15 +142,15 @@ export default function Home() {
                 </div>
             </section>
             <section data-scroll-section className='relative min-h-svh'>
-                <h2 className='absolute top-[15svh] right-2 md:right-[5rem] text-2xl inline-block border-l border-black tracking-wider pl-[0.5rem]' style={{ writingMode: 'vertical-rl' }} data-scroll data-scroll-speed="3" >WHAT I DO</h2>
+                <h2 className='absolute top-[15svh] right-2 md:right-[5rem] text-2xl inline-block border-l border-black tracking-wider pl-[0.5rem]' style={{ writingMode: 'vertical-rl' }} data-scroll data-scroll-speed="3" >{common[locale].what_i_do}</h2>
                 <div className='flex flex-col-reverse md:flex-row mt-[5svh] px-[1rem] md:px-[5rem] md:gap-[5rem]'>
                     <div data-scroll data-scroll-speed="1" className='mt-[5svh] w-full md:pr-[3rem] md:pr-0 md:w-4/5'>
                         <img src="/images/design-daily-pccu-1.png" className='w-full h-auto' alt="" />
                     </div>
                     <div className='pt-[20svh] md:pt-[40svh]'>
                         <div className='pr-[3rem]' data-scroll data-scroll-speed="2">
-                            <h3 className='text-2xl mb-2'>UI/UX Design</h3>
-                            <p>My aim to create interfaces that users find easy to use and pleasurable.</p>
+                            <h3 className='text-2xl mb-2'>{works[locale].ui_ux.displayName}</h3>
+                            <p>{works[locale].ui_ux.detail}</p>
                         </div>
                         <img src="/images/design-daily-pccu-2.png" className='w-full md:mt-[20svh]' alt="" data-scroll data-scroll-speed="4" />
                     </div>
@@ -160,18 +158,26 @@ export default function Home() {
                 <div className='flex flex-col-reverse md:flex-row md:gap-[8vw] mt-[5svh] px-[1rem] md:px-0'>
                     <img src="/images/image-processing-1.png" className='w-full md:w-3/5' alt="" data-scroll data-scroll-speed="5" />
                     <div className='pt-[10svh] text-center md:text-left' data-scroll data-scroll-speed="2">
-                        <h3 className='text-2xl mb-2'>Image Processing</h3>
-                        <p>I have experience in image processing.</p>
+                        <h3 className='text-2xl mb-2'>{works[locale].image_processing.displayName}</h3>
+                        <p>{works[locale].image_processing.detail}</p>
                     </div>
                 </div>
                 <div className='flex flex-col md:flex-row justify-around mt-[5svh] px-[1rem] md:px-0'>
                     <div className='pt-[15svh] text-center' data-scroll data-scroll-speed="2">
-                        <h3 className='text-2xl mb-2'>Server Development</h3>
-                        <p>Experience in deploying Firebase and Vercel servers using CLI and CI/CD.</p>
+                        <h3 className='text-2xl mb-2'>{works[locale].server_development.displayName}</h3>
+                        <p>{works[locale].server_development.detail}</p>
                     </div>
                     <img src="/images/deploy-1.png" className='w-full md:w-1/2 md:h-[80svh] object-contain bg-[#80A6E7]' alt="" data-scroll data-scroll-speed="5" />
                 </div>
             </section>
         </Layout >
     )
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            locale
+        }
+    }
 }

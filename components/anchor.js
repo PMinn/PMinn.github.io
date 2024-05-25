@@ -7,7 +7,7 @@ export default function Anchor(props) {
     })
     if (!newProps.className) newProps.className = '';
     newProps.className = 'overflow-hidden pb-[2px] h-[1.3rem] inline-block content-box relative cursor-pointer anchor ' + newProps.className;
-    if (props?.href) {
+    if (props?.href != undefined) {
         return (
             <Link {...newProps}>
                 <span className='flex flex-col w-full'>

@@ -3,7 +3,9 @@ import Anchor from './anchor';
 
 import { useScroll } from "@/providers/scroll";
 
-export default function Footer() {
+import { common } from '@/i18n/index';
+
+export default function Footer({ locale }) {
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
 
     return (
@@ -11,7 +13,7 @@ export default function Footer() {
             <div className='min-h-svh flex flex-col w-[90%] max-w-[80rem] mx-auto py-[10vh]' data-scroll>
                 <div className='flex justify-between grow'>
                     <div className='ml-5'>
-                        <div className='font-black text-3xl'>Let's<br />Connect.</div>
+                        <div className='font-black text-3xl' dangerouslySetInnerHTML={{ __html: common[locale].lets_connect }} />
                         <div className='font-black mt-8'>P'Min</div>
                         <div className='flex gap-4 mt-3'>
                             <Link href='https://www.instagram.com/min.developer/' target='_blank'>
@@ -24,8 +26,8 @@ export default function Footer() {
                     </div>
                     <div className='mr-[15%]'>
                         <ul>
-                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href="/">Home</Anchor></li>
-                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href="/project">Projects</Anchor></li>
+                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href="/">{common[locale].home}</Anchor></li>
+                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href="/project">{common[locale].projects}</Anchor></li>
                         </ul>
                     </div>
                 </div>

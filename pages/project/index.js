@@ -12,10 +12,9 @@ import Anchor from '@/components/anchor';
 
 import { useScroll } from "@/providers/scroll";
 
-import projects from '@/data/projects_en.json';
+import { projects, common } from '@/i18n/index';
 
-
-export default function ProjectsList() {
+export default function ProjectsList({ locale }) {
     const router = useRouter();
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
     gsap.registerPlugin(ScrollTrigger);
@@ -70,25 +69,26 @@ export default function ProjectsList() {
         <Layout
             breadcrumb={[
                 {
-                    name: 'Home',
+                    name: common[locale].home,
                     path: '/'
                 },
                 {
-                    name: 'Project',
+                    name: common[locale].projects,
                     path: '/project'
                 }
             ]}
+            locale={locale}
         >
             <Head>
                 <title>Projects - P'Min</title>
             </Head>
             <section className='w-[90%] max-w-[80rem] mx-auto' data-scroll-section>
-                <h1 className='text-5xl md:text-6xl mb-10 md:mb-0 font-black'>Projects</h1>
+                <h1 className='text-5xl md:text-6xl mb-10 md:mb-0 font-black'>{common[locale].projects}</h1>
                 <div className='w-fill flex flex-wrap gap-y-20 md:gap-y-[200px] md:pb-[450px]'>
                     {
-                        projects.map((project, i) => (
+                        projects[locale].map((project, i) => (
                             <Link
-                                href={'/project/page/' + project.title}
+                                href={'/project/page/' + (i + 1)}
                                 key={'projects_' + i}
                                 className={`w-full md:w-1/3 md:p-5 ${i % 3 == 0 ? 'md:translate-y-[200px]' : i % 3 == 2 ? 'md:translate-y-[450px]' : ''}`}
                             >
@@ -105,8 +105,16 @@ export default function ProjectsList() {
                 </div>
             </section>
             <section className='w-[90%] max-w-[80rem] mx-auto mt-20 pb-20 flex justify-center' data-scroll-section>
-                <Anchor onClick={router.back}>← Back</Anchor>
+                <Anchor onClick={router.back}>← {common[locale].back}</Anchor>
             </section>
         </Layout>
     )
+}
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            locale
+        },
+    };
 }

@@ -1,0 +1,14 @@
+{
+    "ui_ux": {
+        "displayName": "UI/UX Design",
+        "detail": "My aim to create interfaces that users find easy to use and pleasurable."
+    },
+    "image_processing": {
+        "displayName": "Image Processing",
+        "detail": "I have experience in image processing."
+    },
+    "server_development": {
+        "displayName": "Server Development",
+        "detail": "Experience in deploying Firebase and Vercel servers using CLI and CI/CD."
+    }
+}
