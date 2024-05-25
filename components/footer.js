@@ -26,8 +26,8 @@ export default function Footer({ locale }) {
                     </div>
                     <div className='mr-[15%]'>
                         <ul>
-                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href="/">{common[locale].home}</Anchor></li>
-                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href="/project">{common[locale].projects}</Anchor></li>
+                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href={'/' + locale + "/"}>{common[locale].home}</Anchor></li>
+                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href={'/' + locale + "/project"}>{common[locale].projects}</Anchor></li>
                         </ul>
                     </div>
                 </div>

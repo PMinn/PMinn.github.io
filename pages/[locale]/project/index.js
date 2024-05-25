@@ -1,20 +1,20 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import Markdown from 'markdown-to-jsx';
-
 import Layout from '@/components/layout';
 import Anchor from '@/components/anchor';
+// import Button from '@/components/button';
 
 import { useScroll } from "@/providers/scroll";
 
-import { projects, common } from '@/i18n/index';
+import { locales, projects, common } from '@/i18n/index';
 
-export default function Projects({ project, locale }) {
+export default function ProjectsList({ locale }) {
     const router = useRouter();
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
     gsap.registerPlugin(ScrollTrigger);
@@ -70,72 +70,60 @@ export default function Projects({ project, locale }) {
             breadcrumb={[
                 {
                     name: common[locale].home,
-                    path: '/'
+                    path: '/' + locale + '/'
                 },
                 {
                     name: common[locale].projects,
-                    path: '/project'
-                },
-                {
-                    name: project.title,
-                    path: '/project/page/' + project.title
+                    path: '/' + locale + '/project'
                 }
             ]}
             locale={locale}
         >
             <Head>
-                <title>{project.title} - P'Min</title>
+                <title>Projects - P'Min</title>
             </Head>
-            <section className='mx-auto w-[90%] max-w-[80rem] flex flex-col-reverse md:flex-row' data-scroll-section>
-                <div className='md:w-1/2 md:pr-[20%]'>
-                    <h1 className='text-4xl font-black flex mb-5'>{project.title}</h1>
-                    <p className='tracking-widest leading-8 mt-5 mb-8'>
-                        <Markdown>{project.description}</Markdown>
-                    </p>
-                    <div className='flex gap-2'>
-                        <div className='w-1/4'>{common[locale].client}:</div>
-                        <div className='w-3/4'>{project.client}</div>
-                    </div>
-                    <div className='flex gap-2'>
-                        <div className='w-1/4'>{common[locale].year}:</div>
-                        <div className='w-3/4'>{project.year}</div>
-                    </div>
-                    <div className='flex gap-2'>
-                        <div className='w-1/4'>{common[locale].content}:</div>
-                        <div className='w-3/4'>{project.content.join(", ")}</div>
-                    </div>
-                    <div className='flex justify-end mt-10'>
-                        <Anchor href={project.link} className='ml-auto' target='_blank'>{common[locale].link} →</Anchor>
-                    </div>
-                </div>
-                <div className='md:w-1/2 mb-5'>
-                    <img src={project.image} alt={project.title + '圖片'} className='drop-shadow-2xl w-full mx-auto' />
+            <section className='w-[90%] max-w-[80rem] mx-auto' data-scroll-section>
+                <h1 className='text-5xl md:text-6xl mb-10 md:mb-0 font-black'>{common[locale].projects}</h1>
+                <div className='w-fill flex flex-wrap gap-y-20 md:gap-y-[200px] md:pb-[450px]'>
+                    {
+                        projects[locale].map((project, i) => (
+                            <Link
+                                href={'/' + locale + '/project/page/' + (i + 1)}
+                                key={'projects_' + i}
+                                className={`w-full md:w-1/3 md:p-5 ${i % 3 == 0 ? 'md:translate-y-[200px]' : i % 3 == 2 ? 'md:translate-y-[450px]' : ''}`}
+                            >
+                                <div className='w-full aspect-video md:aspect-video shadow-xl overflow-hidden'>
+                                    <div className='hover:scale-110 w-full h-full transition duration-500'>
+                                        <img src={project.image} className='w-full h-full object-cover transition-all pointer-events-none drop-shadow-2xl' alt={project.title + '圖示'} />
+                                    </div>
+                                </div>
+                                <h2 className='mt-4 text-xl w-full font-bold font-semibold tracking-widest pointer-events-non'>{project.title}</h2>
+                                <p className='w-full mt-1 line-clamp-3 overflow-hidden'>{project.description}</p>
+                            </Link>
+                        ))
+                    }
                 </div>
             </section>
-            <section className='w-[90%] max-w-[80rem] mx-auto mt-5 pb-20 flex justify-center' data-scroll-section>
+            <section className='w-[90%] max-w-[80rem] mx-auto mt-20 pb-20 flex justify-center' data-scroll-section>
                 <Anchor onClick={router.back}>← {common[locale].back}</Anchor>
             </section>
         </Layout>
     )
 }
 
-export async function getStaticProps({ params, locale }) {
-    const { index } = params;
+export async function getStaticProps({ params }) {
+    const { locale } = params;
     return {
         props: {
-            project: projects[locale][index - 1],
             locale
-        },
-        // revalidate: 1
-    };
+        }
+    }
 }
 
-export async function getStaticPaths({ locales }) {
+export async function getStaticPaths() {
     let paths = [];
     for (const locale of locales) {
-        for (let i = 0; i < projects[locale].length; i++) {
-            paths.push({ params: { index: (i + 1).toString() }, locale });
-        }
+        paths.push({ params: { locale } });
     }
     return {
         paths,

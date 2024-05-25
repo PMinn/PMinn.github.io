@@ -16,11 +16,19 @@ export default function Layout({ children, breadcrumb, locale }) {
                 <div className='w-[90%] max-w-[80rem] mx-auto p-4 flex justify-end gap-2'>
                     {
                         locale != 'zh-TW' &&
-                        <Anchor onClick={() => router.push({ pathname, query }, asPath, { locale: "zh-TW" })}>繁體中文</Anchor>
+                        <Anchor onClick={() => {
+                            router.replace({
+                                query: { ...router.query, locale: 'zh-TW' },
+                            });
+                        }}>繁體中文</Anchor>
                     }
                     {
                         locale != 'en' &&
-                    <Anchor onClick={() => router.push({ pathname, query }, asPath, { locale: "en" })}>English</Anchor>
+                        <Anchor onClick={() => {
+                            router.replace({
+                                query: { ...router.query, locale: 'en' },
+                            });
+                        }}>English</Anchor>
                     }
                 </div>
             </nav>

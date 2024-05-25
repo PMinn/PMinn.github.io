@@ -10,8 +10,7 @@ import Anchor from '@/components/anchor';
 
 import { useScroll } from "@/providers/scroll";
 
-import { projects, common, works } from '@/i18n/index';
-// import works from '@/i18n/works_en.json';
+import { locales, projects, common, works } from '@/i18n/index';
 
 export default function Home({ locale }) {
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
@@ -125,7 +124,7 @@ export default function Home({ locale }) {
                         {
                             projects[locale].map((project, i) => (
                                 <Link
-                                    href={'/project/page/' + (i + 1)}
+                                    href={'/' + locale + '/project/page/' + (i + 1)}
                                     key={'projects_' + i}
                                     className='relative block w-[120vw] md:w-auto md:h-[32rem] p-[5vw]'
                                 >
@@ -174,10 +173,22 @@ export default function Home({ locale }) {
     )
 }
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({ params }) {
+    const { locale } = params;
     return {
         props: {
             locale
         }
+    }
+}
+
+export async function getStaticPaths() {
+    let paths = [];
+    for (const locale of locales) {
+        paths.push({ params: { locale } });
+    }
+    return {
+        paths,
+        fallback: false, // false or "blocking"
     }
 }
