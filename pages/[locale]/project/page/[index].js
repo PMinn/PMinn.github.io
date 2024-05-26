@@ -14,6 +14,8 @@ import { useScroll } from "@/providers/scroll";
 
 import { locales, projects, common } from '@/i18n/index';
 
+import mid from '@/mid';
+
 export default function Projects({ project, locale }) {
     const router = useRouter();
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
