@@ -17,17 +17,25 @@ export default function Layout({ children, breadcrumb, locale }) {
                     {
                         locale != 'zh-TW' &&
                         <Anchor onClick={() => {
-                            router.replace({
-                                query: { ...router.query, locale: 'zh-TW' },
-                            });
+                            const routerValue = {
+                                query: { ...query, locale: 'zh-TW' },
+                            };
+                            if (query.locale == undefined) {
+                                routerValue.pathname = '/[locale]' + pathname;
+                            }
+                            router.replace(routerValue);
                         }}>繁體中文</Anchor>
                     }
                     {
                         locale != 'en' &&
                         <Anchor onClick={() => {
-                            router.replace({
-                                query: { ...router.query, locale: 'en' },
-                            });
+                            const routerValue = {
+                                query: { ...query, locale: 'en' },
+                            };
+                            if (query.locale == undefined) {
+                                routerValue.pathname = '/[locale]' + pathname;
+                            }
+                            router.replace(routerValue);
                         }}>English</Anchor>
                     }
                 </div>
