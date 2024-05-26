@@ -12,6 +12,8 @@ import { useScroll } from "@/providers/scroll";
 
 import { locales, projects, common, works } from '@/i18n/index';
 
+import mid from '@/mid';
+
 export default function Home({ locale }) {
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
     gsap.registerPlugin(ScrollTrigger);
@@ -174,12 +176,8 @@ export default function Home({ locale }) {
 }
 
 export async function getStaticProps({ params }) {
-    const { locale } = params;
-    return {
-        props: {
-            locale
-        }
-    }
+    const res = mid({ params });
+    return res;
 }
 
 export async function getStaticPaths() {

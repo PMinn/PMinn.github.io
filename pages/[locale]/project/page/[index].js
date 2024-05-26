@@ -121,13 +121,9 @@ export default function Projects({ project, locale }) {
 
 export async function getStaticProps({ params }) {
     const { index, locale } = params;
-    return {
-        props: {
-            project: projects[locale][index - 1],
-            locale
-        },
-        // revalidate: 1
-    };
+    const res = mid({ params });
+    res.props.project = projects[locale][index - 1];
+    return res;
 }
 
 export async function getStaticPaths() {

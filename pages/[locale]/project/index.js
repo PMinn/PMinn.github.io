@@ -14,6 +14,8 @@ import { useScroll } from "@/providers/scroll";
 
 import { locales, projects, common } from '@/i18n/index';
 
+import mid from '@/mid';
+
 export default function ProjectsList({ locale }) {
     const router = useRouter();
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
@@ -112,12 +114,8 @@ export default function ProjectsList({ locale }) {
 }
 
 export async function getStaticProps({ params }) {
-    const { locale } = params;
-    return {
-        props: {
-            locale
-        }
-    }
+    const res = mid({ params });
+    return res;
 }
 
 export async function getStaticPaths() {
