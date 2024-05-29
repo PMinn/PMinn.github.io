@@ -47,7 +47,7 @@ export default function ProjectsList({ locale }) {
                         scroller: pageContainer,
                         scrub: true,
                         trigger: "footer",
-                        start: "top 5%",
+                        start: "top top",
                         end: "bottom bottom",
                         // markers: true,
                     },
