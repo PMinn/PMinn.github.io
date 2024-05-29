@@ -74,12 +74,12 @@ export default function Home({ locale }) {
                     ease: "none"
                 });
 
-                gsap.to(pageContainer, {
+                gsap.to("footer", {
                     scrollTrigger: {
                         scroller: pageContainer,
                         scrub: true,
                         trigger: "footer",
-                        start: "top top",
+                        start: "top 5%",
                         end: "bottom bottom",
                         // markers: true,
                     },
