@@ -41,7 +41,7 @@ export default function Index() {
                 </div>
                 <div className='h-20 flex justify-center gap-5' data-scroll data-scroll-speed='7' data-scroll-position='top'>
                     <Anchor href='https://github.com/PMinn' target='_blank'>GitHub</Anchor>
-                    <Anchor href='https://www.instagram.com/min.developer/' target='_blank'>Instagram</Anchor>
+                    <Anchor href='https://www.instagram.com/pmin.dev/' target='_blank'>Instagram</Anchor>
                 </div>
             </section>
             <section className='w-[60%] md:w-full pb-20 mx-auto relative' data-scroll-section id='works'>

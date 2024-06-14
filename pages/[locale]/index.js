@@ -112,7 +112,7 @@ export default function Home({ locale }) {
                     </div>
                     <div className='absolute bottom-[4svh] md:bottom-[10svh] right-[10vw] z-10 flex gap-5'>
                         <Anchor href='https://github.com/PMinn' target='_blank'>GitHub</Anchor>
-                        <Anchor href='https://www.instagram.com/min.developer/' target='_blank'>Instagram</Anchor>
+                        <Anchor href='https://www.instagram.com/pmin.dev/' target='_blank'>Instagram</Anchor>
                     </div>
                 </div>
             </section>

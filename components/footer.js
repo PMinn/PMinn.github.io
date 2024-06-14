@@ -16,7 +16,7 @@ export default function Footer({ locale }) {
                         <div className='font-black text-3xl' dangerouslySetInnerHTML={{ __html: common[locale].lets_connect }} />
                         <div className='font-black mt-8'>P'Min</div>
                         <div className='flex gap-4 mt-3'>
-                            <Link href='https://www.instagram.com/min.developer/' target='_blank'>
+                            <Link href='https://www.instagram.com/pmin.dev/' target='_blank'>
                                 <img src="/images/instagram-logo.svg" className='invert' alt="instagram" />
                             </Link>
                             <Link href='https://github.com/PMinn' target='_blank' >
