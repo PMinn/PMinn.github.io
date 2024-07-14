@@ -6,7 +6,7 @@
         "client": "",
         "year": "2023",
         "content": [
-            "研究論文"
+            0
         ],
         "link": "https://ieeexplore.ieee.org/document/10234047"
     },
@@ -17,9 +17,9 @@
         "client": "",
         "year": "2020",
         "content": [
-            "使用者體驗及介面設計",
-            "網頁",
-            "Line Bot"
+            1,
+            2,
+            3
         ],
         "link": "https://daily-pccu.web.app/"
     },
@@ -30,8 +30,8 @@
         "client": "起源劇團",
         "year": "2022",
         "content": [
-            "使用者體驗及介面設計",
-            "網頁"
+            1,
+            2
         ],
         "link": "https://origin-performing-art.web.app/"
     },
@@ -42,8 +42,8 @@
         "client": "",
         "year": "2024",
         "content": [
-            "使用者體驗及介面設計",
-            "Chrome 擴充功能"
+            1,
+            4
         ],
         "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop"
     },
@@ -54,9 +54,9 @@
         "client": "花蓮恩典咖啡",
         "year": "2021",
         "content": [
-            "使用者體驗及介面設計",
-            "網頁",
-            "Line Bot"
+            1,
+            2,
+            3
         ],
         "link": "https://lin.ee/UV3trY0"
     }

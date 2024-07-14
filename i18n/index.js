@@ -4,6 +4,8 @@ import common_en from '@/i18n/en/common.json';
 import common_zh from '@/i18n/zh/common.json';
 import works_en from '@/i18n/en/works.json';
 import works_zh from '@/i18n/zh/works.json';
+import tags_en from '@/i18n/en/tags.json';
+import tags_zh from '@/i18n/zh/tags.json';
 
 export const locales = ['en', 'zh-TW'];
 
@@ -20,4 +22,9 @@ export const common = {
 export const works = {
     en: works_en,
     'zh-TW': works_zh
+}
+
+export const tags = {
+    en: tags_en,
+    'zh-TW': tags_zh
 }

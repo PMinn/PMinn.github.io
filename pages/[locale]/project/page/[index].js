@@ -12,7 +12,7 @@ import Anchor from '@/components/anchor';
 
 import { useScroll } from "@/providers/scroll";
 
-import { locales, projects, common } from '@/i18n/index';
+import { locales, projects, common, tags } from '@/i18n/index';
 
 import mid from '@/mid';
 
@@ -80,7 +80,7 @@ export default function Projects({ project, locale }) {
                 },
                 {
                     name: project.title,
-                    path: '/' + locale + '/project/page/' + project.title
+                    path: '/' + locale + '/project/page/' + project.index
                 }
             ]}
             locale={locale}
@@ -104,7 +104,7 @@ export default function Projects({ project, locale }) {
                     </div>
                     <div className='flex gap-2'>
                         <div className='w-1/4'>{common[locale].content}:</div>
-                        <div className='w-3/4'>{project.content.join(", ")}</div>
+                        <div className='w-3/4'>{project.content.map(content => content.name).join(", ")}</div>
                     </div>
                     <div className='flex justify-end mt-10'>
                         <Anchor href={project.link} className='ml-auto' target='_blank'>{common[locale].link} →</Anchor>
@@ -125,6 +125,8 @@ export async function getStaticProps({ params }) {
     const { index, locale } = params;
     const res = mid({ params });
     res.props.project = projects[locale][index - 1];
+    res.props.project.index = index;
+    res.props.project.content = res.props.project.content.map(tag => tags[locale][tag]);
     return res;
 }
 

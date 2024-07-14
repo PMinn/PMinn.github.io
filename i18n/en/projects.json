@@ -6,7 +6,7 @@
         "client": "",
         "year": "2023",
         "content": [
-            "Research"
+            0
         ],
         "link": "https://ieeexplore.ieee.org/document/10234047"
     },
@@ -17,9 +17,9 @@
         "client": "",
         "year": "2020",
         "content": [
-            "UI/UX Design",
-            "Web",
-            "Line Bot"
+            1,
+            2,
+            3
         ],
         "link": "https://daily-pccu.web.app/"
     },
@@ -30,8 +30,8 @@
         "client": "Origin",
         "year": "2022",
         "content": [
-            "UI/UX Design",
-            "Web"
+            1,
+            2
         ],
         "link": "https://origin-performing-art.web.app/"
     },
@@ -42,8 +42,8 @@
         "client": "",
         "year": "2024",
         "content": [
-            "UI/UX Design",
-            "Chrome Extension"
+            1,
+            4
         ],
         "link": "https://chromewebstore.google.com/detail/%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC/njenpakabillpkdpnbkbajkfcgmpmlop"
     },
@@ -54,9 +54,9 @@
         "client": "Hualien Grace Cafe",
         "year": "2021",
         "content": [
-            "UI/UX Design",
-            "Web",
-            "Line Bot"
+            1,
+            2,
+            3
         ],
         "link": "https://lin.ee/UV3trY0"
     }

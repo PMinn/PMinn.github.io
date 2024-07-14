@@ -22,6 +22,9 @@ export default function Footer({ locale }) {
                             <Link href='https://github.com/PMinn' target='_blank' >
                                 <img src="/images/github-logo.svg" className='invert' alt="github" />
                             </Link>
+                            <Link href='mailto:p.min.developer@gmail.com' target='_blank' >
+                                <img src="/images/mail-logo.svg" className='invert' alt="github" />
+                            </Link>
                         </div>
                     </div>
                     <div className='mr-[15%]'>
