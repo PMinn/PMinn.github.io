@@ -177,9 +177,9 @@ export default function Home({ locale }) {
                     <img src="/images/deploy-1.png" className='w-full md:w-1/2 md:h-[80svh] object-contain bg-[#80A6E7]' alt="" data-scroll data-scroll-speed="5" />
                 </div>
             </section>
-            <section data-scroll-section className='relative min-h-svh flex flex-col justify-center items-center py-10'>
+            <section data-scroll-section className='relative min-h-svh flex flex-col justify-center items-center'>
                 <h2 className='w-full text-2xl text-center mb-5' data-scroll data-scroll-speed="3" >{common[locale].digital_art}</h2>
-                <div className='w-full flex flex-col md:flex-row justify-around gap-5 md:gap-0 px-4 md:px-0'>
+                <div className='w-full flex flex-col md:flex-row justify-around gap-5 md:gap-0 px-4 md:px-0 pb-10'>
                     {
                         digital_art_embed.map((art, i) => (
                             <div className='' dangerouslySetInnerHTML={{ __html: art }} key={'digital_art_' + i} />
