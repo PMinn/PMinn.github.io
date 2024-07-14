@@ -1,9 +1,7 @@
 export default function mid({ params }) {
     if (params?.locale) {
         return {
-            props: {
-                locale: params?.locale
-            }
+            props: params
         }
     }
     return {
