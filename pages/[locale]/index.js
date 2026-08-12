@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+import Marquee from 'react-fast-marquee';
+
 import Layout from '@/components/layout';
 import Anchor from '@/components/anchor';
 
@@ -80,19 +82,6 @@ export default function Home({ locale }) {
                     ease: "none"
                 });
 
-                gsap.to("footer", {
-                    scrollTrigger: {
-                        scroller: pageContainer,
-                        scrub: true,
-                        trigger: "footer",
-                        start: "top top",
-                        end: "bottom bottom",
-                        // markers: true,
-                    },
-                    backgroundColor: '#080808',
-                    ease: "none"
-                });
-
                 ScrollTrigger.addEventListener("refresh", () => locomotiveScroll.update()); //locomotive-scroll
 
                 ScrollTrigger.refresh();
@@ -108,86 +97,111 @@ export default function Home({ locale }) {
     return (
         <Layout locale={locale}>
             <Head>
-                <title>I am P'Min</title>
+                <title>P&apos;Min — {locale === 'zh-TW' ? '作品集' : 'Portfolio'}</title>
+                <meta name="description" content={locale === 'zh-TW' ? 'P’Min 的設計與數位作品集。' : 'Design and digital work by P’Min.'} />
             </Head>
+
             <section data-scroll-section id='cover'>
-                <div className='min-h-svh relative'>
-                    <h1 className='text-[16vw] md:text-7xl absolute top-[10svh] left-[10vw] font-extrabold z-0'>P'Min</h1>
-                    <div className='absolute top-0 left-0 w-full h-full flex justify-center items-center z-0' id='avatar'>
-                        <img src='/images/avatar.jpg' alt='avatar' className='rounded-full w-[80%] md:w-[44%] max-w-[500px] mx-auto ' width='500' height='500' />
+                <div className='hero-grid'>
+                    <h1 className={`hero-title ${locale === 'zh-TW' ? 'hero-title--zh' : ''}`} dangerouslySetInnerHTML={{ __html: common[locale].hero_title }} />
+                    <div className='hero-portrait' id='avatar'>
+                        <img src='/images/avatar.jpg' alt={locale === 'zh-TW' ? 'P’Min 的頭像' : 'Portrait of P’Min'} width='500' height='499' />
                     </div>
-                    <div className='absolute bottom-[4svh] md:bottom-[10svh] right-[10vw] z-10 flex gap-5'>
-                        <Anchor href='https://github.com/PMinn' target='_blank'>GitHub</Anchor>
-                        <Anchor href='https://www.instagram.com/pmin.dev/' target='_blank'>Instagram</Anchor>
+                    <div className='hero-bottom'>
+                        <p className='hero-intro' dangerouslySetInnerHTML={{ __html: common[locale].intro }} />
+                        <div className='hero-links'>
+                            <Anchor href='https://github.com/PMinn' target='_blank'>GitHub ↗</Anchor>
+                            <Anchor href='https://www.instagram.com/pmin.dev/' target='_blank'>Instagram ↗</Anchor>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section data-scroll-section className='relative'>
-                <div className='absolute bottom-[15svh] md:bottom-[10svh] left-[10vw] text-sm md:text-xl' dangerouslySetInnerHTML={{ __html: common[locale].intro }} />
-            </section>
+
             <section data-scroll-section id='projects'>
-                <div id="sectionPin" className='h-svh overflow-hidden flex bg-[#080808] text-white'>
-                    <div className="pin-wrap h-full flex justify-start items-center">
-                        <h2 className='text-3xl w-[90vw] max-w-[400px] pl-5'>{common[locale].just_something_i_made}</h2>
-                        {
-                            projects[locale].map((project, i) => (
-                                <Link
-                                    href={'/' + locale + '/project/page/' + (i + 1)}
-                                    key={'projects_' + i}
-                                    className='relative block w-[120vw] md:w-auto md:h-[32rem] p-[5vw]'
-                                >
-                                    <div className='h-full aspect-video shadow-xl overflow-hidden z-0'>
-                                        <div className='hover:scale-110 w-full h-full transition duration-500'>
-                                            <img src={project.image} className='w-full h-full object-cover transition-all pointer-events-none' alt={project.title + '圖示'} />
-                                        </div>
+                <div id='sectionPin' className='projects-stage h-svh overflow-hidden flex'>
+                    <div className='pin-wrap h-full flex justify-start items-center'>
+                        <div className='projects-intro'>
+                            <div className='eyebrow text-cobalt mb-5'>{locale === 'zh-TW' ? '最近做了什麼' : 'A few recent things'}</div>
+                            <h2 className='section-heading'>{common[locale].just_something_i_made}</h2>
+                            <p className='max-w-[25rem] mt-7 text-paper/55'>{locale === 'zh-TW' ? '網站、工具與數位實驗——每個作品都從一個真實問題開始。' : 'Websites, tools and digital experiments—each one begins with a real problem.'}</p>
+                        </div>
+                        {projects[locale].map((project, i) => (
+                            <Link
+                                href={'/' + locale + '/project/page/' + (i + 1)}
+                                key={'projects_' + i}
+                                className='project-slide group'
+                            >
+                                <div className='project-slide__image'>
+                                    <img src={project.image} alt={project.title} />
+                                </div>
+                                <div className='flex items-start gap-5 mt-5'>
+                                    <span className='text-sky text-sm font-bold'>{String(i + 1).padStart(2, '0')}</span>
+                                    <div>
+                                        <h3 className='font-display text-xl md:text-2xl font-semibold leading-tight'>{project.title}</h3>
+                                        <p className='mt-1 text-sm text-paper/45'>{project.year}</p>
                                     </div>
-                                    <div className='w-full text-xs mt-2 md:mt-5 line-clamp-2 overflow-hidden' style={{ height: '3em' }}>{project.title}</div>
-                                </Link>
-                            ))
-                        }
+                                </div>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </section>
-            <section data-scroll-section className='relative min-h-svh'>
-                <h2 className='absolute top-[15svh] right-2 md:right-[5rem] text-2xl inline-block border-l border-black tracking-wider pl-[0.5rem]' style={{ writingMode: 'vertical-rl' }} data-scroll data-scroll-speed="3" >{common[locale].what_i_do}</h2>
-                <div className='flex flex-col-reverse md:flex-row mt-[5svh] px-4 md:px-[5rem] md:gap-[5rem]'>
-                    <div data-scroll data-scroll-speed="1" className='mt-[5svh] w-full md:pr-0 md:w-4/5'>
-                        <img src="/images/design-daily-pccu-1.png" className='w-full h-auto' alt="" />
+
+            <section data-scroll-section className='practice'>
+                <div className='practice-header'>
+                    <div className='practice-heading'>
+                        <div className='eyebrow text-cobalt mb-5 reveal' data-scroll>{locale === 'zh-TW' ? '不只把它做出來' : 'Beyond making it work'}</div>
+                        <h2 className='section-heading max-w-[11ch] reveal' data-scroll>{common[locale].what_i_do}</h2>
                     </div>
-                    <div className='pt-[20svh] md:pt-[40svh]'>
-                        <div className='pr-[3rem]' data-scroll data-scroll-speed="2">
-                            <h3 className='text-2xl mb-2'>{works[locale].ui_ux.displayName}</h3>
+                    <p className='practice-lede reveal' data-scroll>
+                        {locale === 'zh-TW'
+                            ? '從產品介面、品牌與影像到部署，把每一段體驗整理成一致的視覺與運作方式。'
+                            : 'From product interfaces, brand and imagery to deployment, I shape every layer into one coherent experience.'}
+                    </p>
+                </div>
+                <div className='practice-list'>
+                    <article className='practice-row reveal' data-scroll>
+                        <div className='practice-image'><img src='/images/design-daily-pccu-2.png' alt={works[locale].ui_ux.displayName} /></div>
+                        <div className='practice-copy'>
+                            <div className='eyebrow text-cobalt mb-3'>{locale === 'zh-TW' ? '體驗與介面' : 'Experience & interface'}</div>
+                            <h3>{works[locale].ui_ux.displayName}</h3>
                             <p>{works[locale].ui_ux.detail}</p>
                         </div>
-                        <img src="/images/design-daily-pccu-2.png" className='w-full md:mt-[20svh]' alt="" data-scroll data-scroll-speed="4" />
-                    </div>
-                </div>
-                <div className='flex flex-col-reverse md:flex-row md:gap-[8vw] mt-[5svh] px-4 md:px-0'>
-                    <img src="/images/image-processing-1.png" className='w-full md:w-3/5' alt="" data-scroll data-scroll-speed="5" />
-                    <div className='pt-[10svh] text-center md:text-left' data-scroll data-scroll-speed="2">
-                        <h3 className='text-2xl mb-2'>{works[locale].image_processing.displayName}</h3>
-                        <p>{works[locale].image_processing.detail}</p>
-                    </div>
-                </div>
-                <div className='flex flex-col md:flex-row justify-around mt-[5svh] px-4 md:px-0'>
-                    <div className='pt-[15svh] text-center' data-scroll data-scroll-speed="2">
-                        <h3 className='text-2xl mb-2'>{works[locale].server_development.displayName}</h3>
-                        <p>{works[locale].server_development.detail}</p>
-                    </div>
-                    <img src="/images/deploy-1.png" className='w-full md:w-1/2 md:h-[80svh] object-contain bg-[#80A6E7]' alt="" data-scroll data-scroll-speed="5" />
+                    </article>
+                    <article className='practice-row reveal' data-scroll>
+                        <div className='practice-image'><img src='/images/design-daily-pccu-1.png' alt={works[locale].brand_identity.displayName} /></div>
+                        <div className='practice-copy'>
+                            <div className='eyebrow text-cobalt mb-3'>{locale === 'zh-TW' ? '品牌與視覺' : 'Brand & visual'}</div>
+                            <h3>{works[locale].brand_identity.displayName}</h3>
+                            <p>{works[locale].brand_identity.detail}</p>
+                        </div>
+                    </article>
+                    <article className='practice-row reveal' data-scroll>
+                        <div className='practice-image'><img src='/images/image-processing-1.png' alt={works[locale].image_processing.displayName} /></div>
+                        <div className='practice-copy'>
+                            <div className='eyebrow text-cobalt mb-3'>{locale === 'zh-TW' ? '影像與實驗' : 'Image & experiment'}</div>
+                            <h3>{works[locale].image_processing.displayName}</h3>
+                            <p>{works[locale].image_processing.detail}</p>
+                        </div>
+                    </article>
+                    <article className='practice-row reveal' data-scroll>
+                        <div className='practice-image'><img src='/images/deploy-1.png' alt={works[locale].server_development.displayName} /></div>
+                        <div className='practice-copy'>
+                            <div className='eyebrow text-cobalt mb-3'>{locale === 'zh-TW' ? '部署與交付' : 'Deploy & delivery'}</div>
+                            <h3>{works[locale].server_development.displayName}</h3>
+                            <p>{works[locale].server_development.detail}</p>
+                        </div>
+                    </article>
                 </div>
             </section>
-            {/* <section data-scroll-section className='relative min-h-svh flex flex-col justify-center items-center'>
-                <h2 className='w-full text-2xl text-center mb-5' data-scroll data-scroll-speed="3" >{common[locale].digital_art}</h2>
-                <div className='w-full flex flex-col md:flex-row justify-around gap-5 md:gap-0 px-4 md:px-0 pb-10'>
-                    {
-                        digital_art_embed.map((art, i) => (
-                            <div className='' dangerouslySetInnerHTML={{ __html: art }} key={'digital_art_' + i} />
-                        ))
-                    }
-                </div>
-            </section> */}
-        </Layout >
+
+            <section data-scroll-section className='capability-ribbon py-5 md:py-7'>
+                <Marquee gradient={false} speed={38}>
+                    <span className='mx-6'>{locale === 'zh-TW' ? '策略 · 介面 · 原型 · 開發 · 影像 · 讓想法成真' : 'Strategy · Interface · Prototyping · Development · Imagery · Making ideas real'}</span>
+                    <span className='mx-6' aria-hidden='true'>{locale === 'zh-TW' ? '策略 · 介面 · 原型 · 開發 · 影像 · 讓想法成真' : 'Strategy · Interface · Prototyping · Development · Imagery · Making ideas real'}</span>
+                </Marquee>
+            </section>
+        </Layout>
     )
 }
 

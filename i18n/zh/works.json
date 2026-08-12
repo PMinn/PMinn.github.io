@@ -1,14 +1,18 @@
 {
     "ui_ux": {
         "displayName": "使用者體驗及介面設計",
-        "detail": "我的目標是建立易於使用且視覺協調的介面。"
+        "detail": "我從資訊層級、使用動線到微互動，讓介面不只好看，也讓人直覺知道下一步。"
+    },
+    "brand_identity": {
+        "displayName": "品牌識別設計",
+        "detail": "從標誌、字體、色彩到應用規範，建立一致而有辨識度的品牌視覺語言。"
     },
     "image_processing": {
         "displayName": "影像處理",
-        "detail": "基本的影像處理技術。"
+        "detail": "運用影像處理與視覺實驗，為數位內容找到更有記憶點的表達方式。"
     },
     "server_development": {
-        "displayName": "系統架設",
-        "detail": "有使用  CLI 和 CI/CD 部署 Firebase 及 Vercel 的經驗。"
+        "displayName": "CI/CD 部署",
+        "detail": "使用 CI/CD 流程部署與維護 Vercel、Firebase 專案，讓更新能穩定且持續交付。"
     }
 }

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Anchor from './anchor';
 
 import { useScroll } from "@/providers/scroll";
@@ -9,36 +8,33 @@ export default function Footer({ locale }) {
     const { isScrollLoaded, getLocomotiveScroll } = useScroll();
 
     return (
-        <footer className='min-h-[150vh] relative text-white flex flex-col justify-end transition-colors' style={{ '--color': '#fff' }} data-scroll-section>
-            <div className='min-h-svh flex flex-col w-[90%] max-w-[80rem] mx-auto py-[10vh]' data-scroll>
-                <div className='flex justify-between grow'>
-                    <div className='ml-5'>
-                        <div className='font-black text-3xl' dangerouslySetInnerHTML={{ __html: common[locale].lets_connect }} />
-                        <div className='font-black mt-8'>P'Min</div>
-                        <div className='flex gap-4 mt-3'>
-                            <Link href='https://www.instagram.com/pmin.dev/' target='_blank'>
-                                <img src="/images/instagram-logo.svg" className='invert' alt="instagram" />
-                            </Link>
-                            <Link href='https://github.com/PMinn' target='_blank' >
-                                <img src="/images/github-logo.svg" className='invert' alt="github" />
-                            </Link>
-                            <Link href='mailto:p.min.developer@gmail.com' target='_blank' >
-                                <img src="/images/mail-logo.svg" className='invert' alt="github" />
-                            </Link>
-                        </div>
+        <footer className='site-footer relative overflow-hidden bg-ink text-paper flex flex-col justify-center' style={{ '--color': 'rgb(244 247 255)' }} data-scroll-section>
+            <div className='relative z-10 w-[92%] max-w-[80rem] mx-auto py-12 md:py-[7vh]' data-scroll>
+                <div className='eyebrow text-sky mb-4'>{locale === 'zh-TW' ? '有想法嗎？' : 'Have something in mind?'}</div>
+                <div className='section-heading max-w-[12ch]' dangerouslySetInnerHTML={{ __html: common[locale].lets_connect }} />
+
+                <div className='grid grid-cols-2 gap-8 md:gap-24 mt-10 md:mt-12 pt-7 md:pt-8 border-t border-paper/15'>
+                    <div>
+                        <div className='eyebrow text-paper/45 mb-4'>{locale === 'zh-TW' ? '找到我' : 'Find me'}</div>
+                        <ul className='flex flex-col gap-2 text-lg'>
+                            <li><Anchor href='https://github.com/PMinn' target='_blank'>GitHub ↗</Anchor></li>
+                            <li><Anchor href='https://www.instagram.com/pmin.dev/' target='_blank'>Instagram ↗</Anchor></li>
+                            <li><Anchor href='mailto:p.min.developer@gmail.com' target='_blank'>Email ↗</Anchor></li>
+                        </ul>
                     </div>
-                    <div className='mr-[15%]'>
-                        <ul>
-                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href={'/' + locale + "/"}>{common[locale].home}</Anchor></li>
-                            <li className='w-full flex justify-center min-h-[40px]'><Anchor className='text-white border-white' href={'/' + locale + "/project"}>{common[locale].projects}</Anchor></li>
+                    <div>
+                        <div className='eyebrow text-paper/45 mb-4'>{locale === 'zh-TW' ? '繼續看看' : 'Keep looking'}</div>
+                        <ul className='flex flex-col gap-2 text-lg'>
+                            <li><Anchor href={'/' + locale + "/"}>{common[locale].home}</Anchor></li>
+                            <li><Anchor href={'/' + locale + "/project"}>{common[locale].projects}</Anchor></li>
                         </ul>
                     </div>
                 </div>
-                <div className='w-full flex justify-center mb-10'>
-                    <div className='hover:bg-[var(--color)] hover:text-black transition duration-300 relative overflow-hidden cursor-pointer rounded-full border border-white aspect-square flex justify-center items-center w-[70px]' onClick={() => getLocomotiveScroll()?.scrollTo(0)}>↑</div>
+
+                <div className='flex items-center justify-between mt-8 md:mt-10 pt-4 border-t border-paper/15'>
+                    <small className='text-[0.65rem] tracking-[0.12em] uppercase text-paper/40'>© 2026 P&apos;Min. Made with care.</small>
+                    <button type='button' aria-label={locale === 'zh-TW' ? '回到頁首' : 'Back to top'} className='hover:bg-[var(--color)] hover:border-sky hover:text-ink transition duration-300 cursor-pointer rounded-full border border-paper/30 w-11 h-11 flex justify-center items-center text-sm' onClick={() => getLocomotiveScroll()?.scrollTo(0)}>↑</button>
                 </div>
-                <hr />
-                <small className='w-full block pt-1 text-center'>© 2024 P'Min. All rights reserved</small>
             </div>
         </footer>
     )

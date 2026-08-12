@@ -6,8 +6,11 @@ import works_en from '@/i18n/en/works.json';
 import works_zh from '@/i18n/zh/works.json';
 import tags_en from '@/i18n/en/tags.json';
 import tags_zh from '@/i18n/zh/tags.json';
+import skills_data from '@/i18n/skills.json';
 
 export const locales = ['en', 'zh-TW'];
+
+export const skills = skills_data;
 
 export const projects = {
     en: projects_en,

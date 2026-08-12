@@ -42,19 +42,6 @@ export default function Projects({ project, locale }) {
                     pinType: "transform"
                 });
 
-                gsap.to("footer", {
-                    scrollTrigger: {
-                        scroller: pageContainer,
-                        scrub: true,
-                        trigger: "footer",
-                        start: "top top",
-                        end: "bottom bottom",
-                        // markers: true,
-                    },
-                    backgroundColor: '#080808',
-                    ease: "none"
-                });
-
                 ScrollTrigger.addEventListener("refresh", () => locomotiveScroll.update()); //locomotive-scroll
 
                 ScrollTrigger.refresh();
@@ -86,35 +73,40 @@ export default function Projects({ project, locale }) {
             locale={locale}
         >
             <Head>
-                <title>{project.title} - P'Min</title>
+                <title>{project.title} - P&apos;Min</title>
             </Head>
-            <section className='mx-auto w-[90%] max-w-[80rem] flex flex-col-reverse md:flex-row' data-scroll-section>
-                <div className='md:w-1/2 md:pr-[20%]'>
-                    <h1 className='text-4xl font-black flex mb-5'>{project.title}</h1>
-                    <p className='tracking-widest leading-8 mt-5 mb-8'>
-                        <Markdown>{project.description}</Markdown>
-                    </p>
-                    <div className='flex gap-2'>
-                        <div className='w-1/4'>{common[locale].client}:</div>
-                        <div className='w-3/4'>{project.client}</div>
-                    </div>
-                    <div className='flex gap-2'>
-                        <div className='w-1/4'>{common[locale].year}:</div>
-                        <div className='w-3/4'>{project.year}</div>
-                    </div>
-                    <div className='flex gap-2'>
-                        <div className='w-1/4'>{common[locale].content}:</div>
-                        <div className='w-3/4'>{project.content.map(content => content.name).join(", ")}</div>
-                    </div>
-                    <div className='flex justify-end mt-10'>
-                        <Anchor href={project.link} className='ml-auto' target='_blank'>{common[locale].link} →</Anchor>
-                    </div>
+            <section className='mx-auto w-[92%] max-w-[80rem]' data-scroll-section>
+                <div className='min-h-[45svh] flex flex-col justify-end pb-12 md:pb-20 reveal' data-scroll>
+                    <div className='eyebrow text-cobalt mb-5'>{locale === 'zh-TW' ? '作品故事' : 'Project story'} · {String(project.index).padStart(2, '0')}</div>
+                    <h1 className='section-heading max-w-[13ch]'>{project.title}</h1>
                 </div>
-                <div className='md:w-1/2 mb-5'>
-                    <img src={project.image} alt={project.title + '圖片'} className='drop-shadow-2xl w-full mx-auto' />
+                <div className='project-hero-image' data-scroll data-scroll-speed='1'>
+                    <img src={project.image} alt={project.title + '圖片'} className='w-full max-h-[78svh] object-cover mx-auto' />
+                </div>
+                <div className='grid md:grid-cols-12 gap-10 md:gap-16 py-16 md:py-28'>
+                    <div className='md:col-span-7 text-lg md:text-xl leading-9 text-ink/75 reveal' data-scroll>
+                        <Markdown>{project.description}</Markdown>
+                    </div>
+                    <div className='md:col-span-5 reveal' data-scroll>
+                        <dl>
+                            <div className='grid grid-cols-3 gap-4 border-t hairline py-4'>
+                                <dt className='eyebrow text-ink/45'>{common[locale].client}</dt>
+                                <dd className='col-span-2'>{project.client || '—'}</dd>
+                            </div>
+                            <div className='grid grid-cols-3 gap-4 border-t hairline py-4'>
+                                <dt className='eyebrow text-ink/45'>{common[locale].year}</dt>
+                                <dd className='col-span-2'>{project.year}</dd>
+                            </div>
+                            <div className='grid grid-cols-3 gap-4 border-y hairline py-4'>
+                                <dt className='eyebrow text-ink/45'>{common[locale].content}</dt>
+                                <dd className='col-span-2'>{project.content.map(content => content.name).join(', ')}</dd>
+                            </div>
+                        </dl>
+                        {project.link && <div className='mt-8'><Anchor href={project.link} target='_blank'>{common[locale].link} ↗</Anchor></div>}
+                    </div>
                 </div>
             </section>
-            <section className='w-[90%] max-w-[80rem] mx-auto mt-5 pb-20 flex justify-center' data-scroll-section>
+            <section className='w-[92%] max-w-[80rem] mx-auto pb-24 flex justify-center' data-scroll-section>
                 <Anchor onClick={router.back}>← {common[locale].back}</Anchor>
             </section>
         </Layout>

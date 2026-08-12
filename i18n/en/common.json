@@ -6,9 +6,11 @@
     "content": "Content",
     "link": "Link",
     "back": "Back",
-    "lets_connect": "Let's<br />Connect.",
-    "intro": "A Full-Stack Developer <br />Who Loves To Create Things.",
-    "just_something_i_made": "Just Something I Made",
-    "what_i_do": "WHAT I DO",
-    "digital_art": "Digital Art"
+    "lets_connect": "Let’s make something<br />worth remembering.",
+    "intro": "I combine design, code and imagery to turn complex ideas into intuitive, human experiences.",
+    "hero_title": "Ideas, shaped<br />into <em>feeling.</em>",
+    "just_something_i_made": "Selected work",
+    "what_i_do": "My creative practice",
+    "digital_art": "Digital Art",
+    "skills": "Toolkit"
 }
